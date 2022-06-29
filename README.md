@@ -9,9 +9,13 @@ After you have Jekyll installed, you need to create your fork of the repo and a 
 Now you should open a terminal and `cd` to the directory in which you want the local copy of your fork to be. Once you've done this, you should run `git clone https://github.com/{your-username}/{whatever-the-fork-is-called}` and then `cd` into that directory.
 <br />
 Now you should run `bundle init` and a Gemfile should be generated. Replace the contents of the Gemfile with this:
-    source "https://rubygems.org"
-    gem "github-pages"
-    gem "webrick" # only use this if you're using a version of Ruby >= 3.0.0
+
+```
+source "https://rubygems.org"
+gem "github-pages"
+gem "webrick" # only use this if you're using a version of Ruby >= 3.0.0
+```
+
 <br />
 Now you should run `bundle` to install the appropriate gems then `bundle exec jekyll serve` to host the files locally on `localhost:4000`. Adding the `--livereload` flag at the end of the command will allow the server to automatically update whenever you have made a change to your copy of the files.<br />
 <br />
