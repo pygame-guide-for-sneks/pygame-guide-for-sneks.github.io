@@ -1,5 +1,6 @@
 yeah
-<br />
+<br /><br />
+---
 <b>Guide to getting started with contributing:</b><br />
 Due to the custom theme provided by GitHub Pages, you're going to need to head on over to <a href="https://jekyllrb.com/docs/installation/">Jekyll</a> and get it installed. Take note of the version of Ruby that you've installed. If you already have Ruby installed and need to know what version, in your terminal just use `ruby -v`.<br />
 <br />
