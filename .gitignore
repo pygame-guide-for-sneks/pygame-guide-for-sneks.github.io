@@ -1,4 +1,6 @@
-_site
-.sass-cache
+# Jekylle 
 Gemfile
 Gemfile.lock
+_site/
+.sass-cache
+
