@@ -8,7 +8,9 @@ title: Classes in Python
     <link rel="stylesheet" href="../styles/embed.css">
 </head>
 <body>
-    <h1>Table of Contents</h1>
+    <h1>Classes in Python and Pygame</h1>
+    <hr> 
+    <h2>Table of Contents</h1>
     <p>
         <ol id="toc">
             <!--
@@ -17,30 +19,52 @@ title: Classes in Python
         </ol>
     </p>
 
-    <h1><a id="class-intro" class="js"></a>What Are Classes and Why Do We Care?</h1>
+    <h2><a id="class-intro" class="js"></a>What Are Classes and Why Do We Care?</h1>
     <p>
-        <iframe width="800px" height="200px" class="python-embed" src="https://godbolt.org/e?hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:1,endLineNumber:3,positionColumn:1,positionLineNumber:3,selectionStartColumn:1,selectionStartLineNumber:3,startColumn:1,startLineNumber:3),source:'import+platform%0Aprint(platform.python_version())%0A'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),header:(),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
+        Python is what's called an object oriented programming language. What this means is that everything in python is an object. But that doesn't tell us what objects are.
+        The word "object" here just means a collection of data and/or functionality. More specifically, objects contain two types of structures: attributes and methods.
+        Generally speaking, attributes are variables and methods are functions. That's what the fancy terminology means. So, now that I've told you the fancy terms, why do they
+        matter and how do they relate to classes? We'll get to that.
     </p>
 
-    <h1><a id="simple-class" class="js"></a>Creating a Simple Class</h1>
+    <p>
+        You should be familiar with the built-in datatypes such as:
+        <ul>
+            <li>int</li>
+            <li>float</li>
+            <li>str</li>
+            <li>list</li>
+            <li>tuple</li>
+            <li>dict</li>
+            <li>...</li>
+        </ul>
+        Each of these built-in datatypes is actually a class! If you don't believe me, here is proof:
+        <iframe width="800px" height="200px" class="python-embed" src="https://www.godbolt.org/e?readOnly=true&hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:54,endLineNumber:8,positionColumn:54,positionLineNumber:8,selectionStartColumn:54,selectionStartLineNumber:8,startColumn:54,startLineNumber:8),source:'types+%3D+%5Bint,+float,+str,+list,+tuple,+dict%5D%0A%0Afor+dtype+in+types:%0A++++print(f!'type(%7Bdtype.__name__%7D)+%3D+%7Btype(dtype)%7D!')%0A++++if+isinstance(dtype,+object):%0A++++++++print(f!'%7Bdtype.__name__%7D+is+an+object%5Cn!')%0A++++else:%0A++++++++print(f!'%7Bdtype.__name__%7D+is+not+an+object%5Cn!')'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'1',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),header:(),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
+        
+    </p>
+
+    <h2><a id="simple-class" class="js"></a>Creating a Simple Class</h1>
     <p>Enter some text and code here</p>
 
-    <h1><a id="methods"  class="js"></a>Instance Methods</h1>
+    <h2><a id="inheritance" class="js"></a>Inheritance</h2>
     <p>Enter some text and code here</p>
 
-    <h1><a id="class-methods" class="js"></a>Class Methods</h1>
+    <h2><a id="methods"  class="js"></a>Instance Methods</h1>
     <p>Enter some text and code here</p>
 
-    <h1><a id="static-methods" class="js"></a>Static Methods</h1>
+    <h2><a id="class-methods" class="js"></a>Class Methods</h1>
     <p>Enter some text and code here</p>
 
-    <h1><a id="dunder-methods" class="js"></a>Magic Methods</h1>
+    <h2><a id="static-methods" class="js"></a>Static Methods</h1>
     <p>Enter some text and code here</p>
 
-    <h1><a id="property-decorator" class="js"></a>Properties</h1>
+    <h2><a id="dunder-methods" class="js"></a>Magic Methods</h1>
     <p>Enter some text and code here</p>
 
-    <h1><a id="pygame" class="js"></a>Integrating with Pygame</h1>
+    <h2><a id="property-decorator" class="js"></a>Properties</h1>
+    <p>Enter some text and code here</p>
+
+    <h2><a id="pygame" class="js"></a>Integrating with Pygame</h1>
     <p>Enter some text and code here</p>
 
     <script src="../scripts/table_of_contents.js"></script>
