@@ -1,0 +1,18 @@
+<div class="footer" id="footer">
+    <h3>Useful Stuffs</h3>
+    <footer>
+        You can visit the <a href="{% if page.pg %}{{page.pg}}{% else %}https://www.pygame.org/docs{% endif %}">
+            pygame documentation
+        </a> to find the full list of functions and other information about the Pygame library.
+    </footer>
+
+    {% if page.links %}
+        <h4>Other Useful Links</h4>
+        <footer>
+            {% for link in page.links %}
+                <a href="{{ link }}">{{ link }}</a><br>
+            {% endfor %}
+        </footer>
+    {% endif %}
+    
+</div>
