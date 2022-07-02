@@ -1,0 +1,59 @@
+--- <!--Remove comments in this front matter, including this one-->
+layout: default <!--Keep this default, not sure what it does XD-->
+title: Some Title <!--Change to whatever you want the title to be-->
+pg: https://www.pygame.org/docs <!--Whatever pygame doc link you want leave empty for default homepage-->
+links: [[https://www.google.com, Google], [https://www.weather.com, Weather]] <!--leave this blank if you don't want any extra links-->
+---
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="../../styles/embed.css"> <!--the particular .css file may change depending on page-->
+</head>
+<body>
+    <h1>{{ page.title }}</h1>
+    <hr> 
+
+    <!--You can change some of this up, but keep the ordered list the same (keep the id identifier)-->
+    <h2>Table of Contents</h1>
+    <p>
+        <ol id="toc">
+            <!--
+            To be filled by javascript
+            -->
+        </ol>
+    </p>
+
+    <!--id and class make it show up properly in TOC. Customize the id to be descriptive.
+    Keep the class as "js". The text is not inside the anchor because that would cause the
+    whole header to be an empty hyperlink
+    -->
+    <h2><a id="class-intro" class="js"></a>Some Section</h1>
+    <p></p>
+
+    <!--id and class make it show up properly in TOC-->
+    <h2><a id="simple-class" class="js"></a>Creating a Simple Class</h1>
+    <p>Enter some text and code here</p>
+
+    <!--adding more sections with the appropriate format automatically 
+        merges into TOC due to the javascript referenced in the script
+        tag just below this
+    -->
+
+    <!--This sets up the footer from the template-->
+    <hr>
+    {% include footer.html %}
+
+    <!--This is the table of contents javascript-->
+    <script src="../../scripts/table_of_contents.js"></script>
+</body>
+
+<!--This is a code block template. The endhighlight needs to be on the same line
+otherwise there is an awkard gap at the bottom of the code block
+-->
+<!-- 
+    {% highlight python %}
+            import sussy
+            def amogus():
+                print('amogus')
+            amogus() {% endhighlight %}
+-->
