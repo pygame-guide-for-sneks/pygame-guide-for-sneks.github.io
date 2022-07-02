@@ -1,34 +1,33 @@
 ---
 layout: default
 title: Fonts in Pygame
+pg: https://www.pygame.org/docs/ref/font.html
 ---
 <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>Fonts in Pygame</h1>
+    <h1>{{ page.title }}</h1>
 
     <p>
         In this article, we'll learn how to use custom and system fonts in Pygame.
         <h1>Table of contents</h1>
 
-        <ol>
-            <li><a href="#pygame-init">Initializing Pygame</a></li>
-            <li><a href="#loading-fonts">Loading fonts in Pygame</a></li>
-            <li><a href="#rendering-fonts">Rendering fonts in Pygame</a></li>
-            <li><a href="#other-info">Other useful information</a></li>
+        <ol id="toc">
+            <!--
+            To be filled by javascript
+            -->
         </ol>
     </p>
 
-    <h1><a id="pygame-init"></a>Initializing Pygame</h1>
+    <h1><a id="pygame-init" class="js"></a>Initializing Pygame</h1>
     <p>
         Before using fonts in pygame, keep in mind that you have to initialize pygame before using the <code>pygame.font</code> module. To do that, you can simply put <code>pygame.init()</code> or <code>pygame.font.init()</code> at the top of your python script.
     <br>
     </p>
 
-    <h1><a id="loading-fonts"></a>Loading fonts in Pygame</h1>
+    <h1><a id="loading-fonts" class="js"></a>Loading fonts in Pygame</h1>
     <p>
         <h2>System fonts</h2>
         To load a system font in pygame, we create an instance of the <code>pygame.font.SysFont</code> class:<br>
@@ -69,7 +68,7 @@ font = pygame.font.Font(None, 32){% endhighlight %}
     <br>
     </p>
 
-    <h1><a id="rendering-fonts"></a>Rendering fonts in Pygame</h1>
+    <h1><a id="rendering-fonts" class="js"></a>Rendering fonts in Pygame</h1>
     <p>
         To render a <code>pygame.font.Font</code> object, we can use the <code>pygame.font.Font.render</code> method:<br>
         {% highlight python %}
@@ -114,10 +113,7 @@ pygame.quit(){% endhighlight %}
     <br>
     </p>
 
-    <h1><a id="other-info"></a>Other useful information:</h1>
-    <p>
-        You can visit the <a href="https://pygame.org/docs">pygame documentation</a> to find the full list of functions and other information about the <code>pygame.font</code> module.
-    </p>
+    {% include footer.html %}
 
-    
+    <script src="../../scripts/table_of_contents.js"></script>
 </body>
