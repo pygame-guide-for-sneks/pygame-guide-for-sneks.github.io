@@ -1,5 +1,5 @@
 <b>Guide to Getting Started With Contributing:</b>  
-Due to the custom theme provided by GitHub Pages, you're going to need to head on over to <a href="https://jekyllrb.com/docs/installation/">Jekyll</a> and get it installed. Take note of the version of Ruby that you've installed. If you already have Ruby installed and need to know what version, in your terminal just use `ruby -v`.
+Due to the custom theme provided by GitHub Pages, you're going to need to head on over to [Jekyll]("https://jekyllrb.com/docs/installation/") and get it installed. Take note of the version of Ruby that you've installed. If you already have Ruby installed and need to know what version, in your terminal just use `ruby -v`.
 
 After you have Jekyll installed, you need to create your fork of the repo and a clone of your fork. First thing you should do is fork this repository by clicking the `Fork` button in the top right of the screen (at least on desktop) and it should create a forked repository in your personal repositories. Take note of what it's called.
 
