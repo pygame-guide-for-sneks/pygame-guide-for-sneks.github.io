@@ -1,8 +1,10 @@
-### Guide to Getting Started With Contributing: 
+## Guide to Getting Started With Contributing: 
 
 Due to the custom theme provided by GitHub Pages, you're going to need to install [Ruby](https://rubyinstaller.org/downloads/) and then [Jekyll](https://jekyllrb.com/docs/installation/) to get started.
 - Take note of the version of Ruby that you've installed. 
 - If you already have Ruby installed and need to know what version, use `ruby -v` in your terminal of choice.
+- When installing Jekyll, it is advised that you use the Guide based on your OS. 
+    - i.e. Windows users do not need to install `Make` or `GCC` separately if using the Ruby+DevKit with MSYS2 & MINGW dev tool chain.
 
 After you have Jekyll installed, you need to create your fork of the repo and a clone of your fork. 
 First thing you should do is fork this repository by clicking the `Fork` button in the top right of the screen (at least on desktop) and it should create a forked repository in your personal repositories. 
@@ -19,7 +21,7 @@ gem "github-pages"
 gem "webrick" # only use this if you're using a version of Ruby >= 3.0.0
 ```
 
-Now you should run `bundle` to install the appropriate gems then `bundle exec jekyll serve` to host the files locally on `localhost:4000`. 
+Now you should run `bundle install` to install the appropriate gems then `bundle exec jekyll serve` to host the files locally on `localhost:4000`. 
 Adding the `--livereload` flag at the end of the command will allow the server to automatically update whenever you have made a change to your copy of the files.
 
 Now is the time to make whatever changes you want to make. Make the changes (hopefully you've said what you're doing), add the files, commit them to your personal fork and push them to the fork. Now you can make a Pull Request (PR) to merge into this repository.
