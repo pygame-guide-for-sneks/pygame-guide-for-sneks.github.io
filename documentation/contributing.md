@@ -1,8 +1,8 @@
 ### Guide to Getting Started With Contributing: 
 
 Due to the custom theme provided by GitHub Pages, you're going to need to install [Ruby](https://rubyinstaller.org/downloads/) and then [Jekyll](https://jekyllrb.com/docs/installation/) to get started.
-Take note of the version of Ruby that you've installed. 
-If you already have Ruby installed and need to know what version, in your terminal just use `ruby -v`.
+- Take note of the version of Ruby that you've installed. 
+- If you already have Ruby installed and need to know what version, use `ruby -v` in your terminal of choice.
 
 After you have Jekyll installed, you need to create your fork of the repo and a clone of your fork. 
 First thing you should do is fork this repository by clicking the `Fork` button in the top right of the screen (at least on desktop) and it should create a forked repository in your personal repositories. 
@@ -12,7 +12,7 @@ Now you should open a terminal and `cd` to the directory in which you want the l
 Once you've done this, you should run `git clone https://github.com/{your-username}/{whatever-the-fork-is-called}` and then `cd` into that directory.
 
 Now you should run `bundle init` and a Gemfile should be generated. 
-Replace the contents of the Gemfile with this:
+Replace the contents of the Gemfile with this: (Note that `#` is used to denote comments in Gemfiles)
 ```
 source "https://rubygems.org"
 gem "github-pages"
@@ -41,5 +41,10 @@ gem install eventmachine --platform ruby
     Note: At least in PowerShell, after these steps non-UTF-8 characters in paths don't seem to render correctly anymore, but command prompt seems to display them fine.	
 3. Windows users have experienced issues when trying to install Ruby using the windows package manager
     - It is advised that Windows users use the `Ruby With DevKit Installer` from [The Ruby Installer Site](https://rubyinstaller.org/downloads/) to circumvent this issue.
-	
+4. In some cases, `bundle install` does not automatically install the `github-pages` and `webrick` gems. 
+    - If this occurs, you may see the error `cannot find executable jekyll fo gem jekyll` or similar. 
+	- If you try to run `jekyll -v` under this cicumstance, you may get another error: `'block in verify_gemfile_dependencies_are_found!': Could not find gem 'github-pages'...`
+	- To workaround this, you may simply `gem install github-pages` and then `gem install webrick`. 
+	    - After this, you should be able to use `jekyll -v` (or `bundle exec jekyll -v`) to see the working jekyll version
+		- At this point, you may run `bundle exec jekyll serve` again to ensure the configuration is properly running.
 	
