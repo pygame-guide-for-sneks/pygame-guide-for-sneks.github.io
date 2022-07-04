@@ -4,3 +4,5 @@ Gemfile.lock
 _site/
 .sass-cache
 
+# Other miscellaneous items
+.vscode
