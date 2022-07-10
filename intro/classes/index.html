@@ -26,10 +26,10 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
         <h2><a id="class-intro" class="js"></a>What Are Classes and Why Do We Care?</h1>
         <p>
             <!-- TODO: reword part about attributes and methods-->
-            Python is what's called an object oriented programming language. What this means is that everything in python is an object. But that doesn't tell us what objects are.
+            Python is an object oriented programming language, which means that everything in Python is an object. But that doesn't tell us what objects are.
             The word "object" here just means a collection of data and/or functionality. More specifically, objects contain two types of structures: attributes and methods.
-            Generally speaking, attributes are variables and methods are functions. That's what the fancy terminology means. So, now that I've told you the fancy terms, why do they
-            matter and how do they relate to classes? We'll get to that.
+            Generally speaking, attributes are variables and methods are functions. Now, why do they matter and how do they relate to classes? We'll get
+            to that.
         </p>
 
         <p>
@@ -54,8 +54,8 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
             <br>
             that's a very long story <i>far</i> out of the scope of this discussion. There will be some references at the bottom of the page that you can reference 
             if you dare to dig into it. The important part of the answer is that classes are both objects and types while instances of classes are only objects.
-            So from now on whenever the terms "object", "class", and "type" are being used when talking about Python, they're <i>probably</i> interchangeable. So
-            the ultimate answer to "What is a Class" is that it is a container for some data and functionality.
+            So from now on whenever the terms "object", "class", and "type" are being used when talking about Python, they're <i>probably</i> interchangeable.
+            The ultimate answer to "What is a class" is that it is a container for some data and functionality.
         </p>
     </div>
 
@@ -71,12 +71,12 @@ class Foo:
         </p>
         
         <p>
-            Let's talk about the <code class="code">class Foo:</code> part first. This is where we declare that we are creating a class called "Foo". That's it.
+            Let's talk about the <code class="code">class Foo:</code> part first. This is where we create a class named "Foo". That's it.
             No more black magic here. We are literally just telling Python that we want to create a class called "Foo".
         </p>
 
         <p>
-            Now for the next line <code class="code">def __init__(self):</code>. This is called the class <i>constructor</i>. Almost every class you'll ever write
+            Now for the next line, <code class="code">def __init__(self):</code>. This is called the class <i>constructor</i>. Almost every class you'll ever write
             has this part. I'm leaving out a few details here since they are way out of scope of this discussion. This particular function is called the constructor
             because it, in essence, "constructs" the class. Generally, you don't want to put anything computationally expensive in the constructor nor do you want to
             call a computationally expensive function from the constructor. It's job is to just set up the instance in such a way that you can use it. The 
@@ -87,10 +87,10 @@ class Foo:
         </p>
 
         <p>
-            Now let's start creating a class that we will continue to build on throughout this tutorial:
+            Now let's start building a class that we will continue to build on throughout this tutorial:
 
             {% highlight python %}
-class Character:
+class Actor:
     def __init__(self):
         pass {% endhighlight %}
 
@@ -98,15 +98,15 @@ class Character:
             constructor has finished and these attributes can be accessed from other places in your code. So, let's define a few attributes:
 
         {% highlight python %}
-class Character:
+class Actor:
     def __init__(self):
         self.health = 100
         self.attack = 5
         self.defense = 0
         self.inventory = ['sword', 'shield'] {% endhighlight %}
 
-            Alright, let's parse what we see here. When we create a <code class="code">Character</code> instance, the constructor is going to assign some 
-            health, some attack, some defense, and some inventory to something called <code class="code">self</code>. <code class="code">self</code>
+            Alright, let's parse what we see here. When we create a <code class="code">Actor</code> instance, the constructor is going to assign the values
+            health, attack, defense, and some inventory to something called <code class="code">self</code>. <code class="code">self</code>
             represents the <i>class instance</i> (or in other words, it's <i>referring to itself</i>), so you're really just assigning those bits of data
             to the instance of the class. This serves a quite useful purpose. You see, if I didn't prefix all of those with <code class="code">self</code>,
             then when the constructor finished running then the values would go out of the local scope they were defined in and get garbage collected away
@@ -155,11 +155,11 @@ class Character:
         <p>
             These are the trickiest to understand. One of these attributes would look like <br>
             <code class="code">self.__health = 100</code>. These attributes are
-            intended to be private. Users are not supposed to access these nor are any subclasses. That doesn't make them inaccessible, they're still totally
-            accessible, but they're actually harder to access. This is due to <b>name mangling</b>. When you define one of these attributes on a class, the name
-            of the attribute is changed outside of the class itself. If my class name is <code class="code">Character</code> with the attribute I listed above, I'd have
-            to access the attribute like <code class="code">instance._Character__health</code>, but within the <code class="code">Character</code> class, I could just
-            call <code class="code">self.__health</code>. We'll talk about the subclass implications after we talk about subclasses in the Inheritance section.
+            intended to be private; users are not supposed to access these nor are any subclasses. This doesn't make them inaccessible. They're actually harder to access.
+            This is due to <b>name mangling</b>. When you define one of these attributes on a class, the name of the attribute is changed outside of the class itself.
+            If my class name is <code class="code">Actor</code> with the attribute I listed above, I'd have to access the attribute like <code class="code">instance._Actor__health</code>,
+            but within the <code class="code">Actor</code> class, I could just call <code class="code">self.__health</code>. We'll talk about the subclass implications after we talk about
+            subclasses in the Inheritance section.
         </p>
     </div>
 
