@@ -1,6 +1,6 @@
 Welcome to the Pygame Guide for Sneks!
 
-<div align="center"><img src="./logo_files/logo.svg" width="300"/></div>
+<div align="center"><img src="./logo_files/logo.svg" width="325"/></div>
 
 There isn't much to it right now, but it'll hopefully be worth the wait!
 ---
