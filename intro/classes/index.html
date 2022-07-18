@@ -1,13 +1,8 @@
 ---
 layout: default
 title: Classes in Python and Pygame
-<<<<<<< HEAD
-pg: 
-links: 
-=======
 pg:
 links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Types and Objects]]
->>>>>>> 6ecec06e81de83d855b6722ce29cfd43631260c6
 ---
 <head>
     <meta charset="utf-8">
@@ -17,11 +12,7 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
 </head>
 <body>
     <h1>{{ page.title }}</h1>
-<<<<<<< HEAD
-    <hr> 
-=======
     <hr>
->>>>>>> 6ecec06e81de83d855b6722ce29cfd43631260c6
     <h2>Table of Contents</h1>
     <p>
         <ol id="toc">
@@ -47,26 +38,6 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
             matter and how do they relate to classes? We'll get to that.
         </p>
 
-<<<<<<< HEAD
-    <p>
-        You should be familiar with the built-in datatypes such as:
-        <ul>
-            <li>int</li>
-            <li>float</li>
-            <li>str</li>
-            <li>list</li>
-            <li>tuple</li>
-            <li>dict</li>
-            <li>...</li>
-        </ul>
-        Each of these built-in datatypes is actually an object! If you don't believe me, here is proof:
-        <iframe width="800px" height="200px" class="python-embed" src="https://www.godbolt.org/e?readOnly=true&hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:54,endLineNumber:8,positionColumn:54,positionLineNumber:8,selectionStartColumn:54,selectionStartLineNumber:8,startColumn:54,startLineNumber:8),source:'types+%3D+%5Bint,+float,+str,+list,+tuple,+dict%5D%0A%0Afor+dtype+in+types:%0A++++print(f!'type(%7Bdtype.__name__%7D)+%3D+%7Btype(dtype)%7D!')%0A++++if+isinstance(dtype,+object):%0A++++++++print(f!'%7Bdtype.__name__%7D+is+an+object%5Cn!')%0A++++else:%0A++++++++print(f!'%7Bdtype.__name__%7D+is+not+an+object%5Cn!')'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'1',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),header:(),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
-    </p>
-
-    <p>
-        Wait, what? What the heck does <code class="code">&ltclass 'type'></code> mean?
-    </p>
-=======
         <p>
             You should be familiar with the built-in datatypes such as:
             <ul>
@@ -84,7 +55,6 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
             <iframe width="800px" height="200px" class="python-embed"
                 src="https://www.godbolt.org/e?readOnly=true&hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:54,endLineNumber:8,positionColumn:54,positionLineNumber:8,selectionStartColumn:54,selectionStartLineNumber:8,startColumn:54,startLineNumber:8),source:'types+%3D+%5Bint,+float,+str,+list,+tuple,+dict%5D%0A%0Afor+dtype+in+types:%0A++++print(f!'type(%7Bdtype.__name__%7D)+%3D+%7Btype(dtype)%7D!')%0A++++if+isinstance(dtype,+object):%0A++++++++print(f!'%7Bdtype.__name__%7D+is+an+object%5Cn!')%0A++++else:%0A++++++++print(f!'%7Bdtype.__name__%7D+is+not+an+object%5Cn!')'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'1',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),header:(),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
         </p>
->>>>>>> 6ecec06e81de83d855b6722ce29cfd43631260c6
 
         <p>
             Wait, what? What the heck does <code class="code">&ltclass 'type'></code>
