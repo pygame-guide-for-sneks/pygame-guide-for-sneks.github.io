@@ -1,0 +1,106 @@
+---
+layout: default
+title: Basic window setup
+---
+
+<body>
+    <h1>Basic window setup for pygame</h1>
+    <p>In this article, we will go over the structure to open and keep the window running in pygame.</p>
+
+    <h2>Table of contents</h2>
+    <p>
+        <ol id="toc">
+            <!--
+            To be filled by javascript
+            -->
+        </ol>
+    </p>
+
+    <h2><a id="what-is-pygame" class="js"></a>What is pygame?</h2>
+    <p>
+        Before we get into the nitty gritty parts of it, let us first understand what pygame is.
+        pygame is a free and open source library for the Python programming language, which allows 
+        us to build multimedia applications such as video games.
+    
+    </p>
+    <p>
+        pygame provides the very basic utility to draw and manipulate pixels 
+        on to the screen, much like SDL2, but with extended utility in various forms 
+        that makes it easier to use. pygame gives you direct control over how you 
+        want the code to run, this means you could also easily do things that could 
+        drastically drop performance if you aren't careful. This article guides you 
+        through how to avoid such things, while also giving you deeper 
+        understanding of pygame and how to use it.         
+    </p>
+
+    <h2><a id="prerequisites" class="js"></a>Prerequisites</h2>
+    <p>
+        As pygame is a library for <i>python</i>, it is necessary that you 
+        are familiar with it. This goes beyond the scope of this book, but 
+        there are some other great resources for learning Python itself, such  
+        as <a href="">automate the boring stuff</a>.
+        
+        Now, luckily you don't have to be an Anthony Shaw or Tim Peters to be
+        able to use pygame, just some basic Python will do. 
+        This includes:
+            <ul>
+                <li>Understanding how types and instances work</li>
+                <li>Knowing how to access and modify attributes of objects</li>
+                <li>Familiarity with basic OOP(Object Oriented Programming)</li>
+                <li>Basic control flow keywords such as - for, while, break, if, elif, else</li>
+                <li>Functions</li>
+            </ul>
+        
+        Since in Python everything is an object, that is also how you would 
+        interact with the utilities provided through pygame, so knowing how they work 
+        is crucial.
+    </p>
+
+    <h2><a id="installation" class="js"></a>Installing pygame</h2>
+    <p>
+        pygame can be installed through <a href="https://pypi.org">pypi</a> by
+        using the pip package manager.
+
+        This is as simple as,
+    </p>
+
+    <p>
+{% highlight python %}
+pip install pygame
+{% endhighlight %}
+
+    BUT, how you access your pip depends on your Operating System and what interpreter 
+    you plan on using to run the code you will be writing throughout this article. 
+
+    For the sake of this article, we recommend installing pygame globally, and using your global interpreter 
+    to run your code. 
+    
+    For windows, the way you access pip can be 
+
+
+{% highlight python %}
+pip install pygame 
+# Or
+
+# Accessing pip as a module through your python launcher
+py -m pip install pygame 
+
+python -m pip install pygame
+{% endhighlight %}
+
+    If you aren't too confident with where pygame is being installed, use your python launcher 
+    as shown in the last 2 methods to install it, and use the same launcher to run the code accordingly!
+
+    </p>
+
+    <h2><a id=""></a></h2>
+
+    <h2><a id="opening-a-window" class="js"></a>Opening a window with pygame</h2>
+    <p>
+        Finally, we get into the actual code!
+    </p>
+
+
+    <script src="../../scripts/table_of_contents.js"></script>
+</body>
+
