@@ -199,8 +199,150 @@ screen = pygame.display.set_mode(WIN_SIZE)
         When you run this code, the window opens up and then closes immediately. Why is that? 
         This is because there is nothing telling pygame that the window is alive, nor is the 
         python program continuing to run. After creating that special surface we were talking about 
-        it just closes. 
+        it just closes. To keep the window alive and running, we need to keep the Python program running. 
+        To do this, let us create a while loop. From this point onward, the code presented is assumed to be added at the end 
+        of the file unless mentioned otherwise. 
+
+{% highlight python %}
+while True:
+    pass
+{% endhighlight %}
+
+        We notice two problems here:
+        <ol>
+            <li>The window is really laggy, it hangs immediately. To close the application run ctrl + c in your terminal.</li>
+            <li>The window is small, a bit too small.</li>
+        </ol>
+
+        We will address both the issues present here. 
     </p>
+
+    <h3>The window is really laggy.</h3>
+    <p>
+        While the python program is still running, pygame has no way of understanding 
+        that the window is still running, it needs some kind of system that checks for these events.
+        For this, we can grab all the window events that is going on
+
+{% highlight python %}
+while True:
+    events = pygame.event.get()
+{% endhighlight %}
+
+        This should make it responsive, and not hang. 
+    </p>
+
+    <h3>The window is small.</h3>
+    <p>
+        It's all well and good if you want to window to be small, but generally 
+        you cant really tell what size of display your user is going to have, a fix-all solution 
+        for this is to use the <b>pygame.SCALED</b> flag. This way your application directly adjusts its 
+        size to fit the user's display. Not its ratio, its size. The ratio of the window stays the same.
+        Try adding in the flag when calling pygame.display.set_mode
+
+{% highlight python %}
+screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
+{% endhighlight %}
+
+        There we go! Our window is much more fit for our desktop now. Notice the ratio of the window stays the same. 
+    </p>
+
+    <h3>Exiting the game</h3>
+    <p>
+        We have an interesting problem, if you tried closing the application with the X button, 
+        it won't work. This is because you haven't defined what you want pygame to do when the X button is 
+        pressed. The way you exit it as of now is to use ctrl + c in the terminal you are running it from.
+    </p>
+
+    <p>
+        Obviously, this isn't ideal, at all. Remember how we grabbed all the events 
+        that were going on in the window? That actually includes closing it as well. 
+        All we have to do is check if the window is being closed(i.e, the X button is being pressed),
+        and if it is we just need to exit our while loop. 
+
+        For this, we first iterate over the events 
+
+{% highlight python %}
+for event in events:
+    pass
+{% endhighlight %}
+
+        Make sure this is within the while loop. The iterator, i.e, the event object 
+        presented to us here is pretty useful. We can access it's <b>type</b> attribute 
+        which will be an integer, and check if that is going to be the type of event that 
+        corresponds to closing the window. 
+        Here's how it is done,
+
+{% highlight python %}
+for event in events:
+    if event.type == pygame.QUIT:
+        pass
+{% endhighlight %}
+
+        pygame.QUIT is the integer constant that represents trying to quit the application. 
+        Now, you can guess what to do next, we need to exit the loop. We ran this using a 
+
+{% highlight python %}
+while True:
+{% endhighlight %}
+
+        So the only way to exit this is to throw an exception, the way one of the 
+        lead contributors of the pygame project itself like to do it, and I have adopted as well, 
+        is to raise SystemExit. Alternatively you can import sys, and run sys.exit(). 
+
+{% highlight python %}
+while True:
+    events = pygame.event.get()
+
+    for event in events:
+        if event.type == pygame.QUIT:
+            raise SystemExit
+{% endhighlight %}
+        
+        And there we have it! Our game should close when we press the X button accordingly. 
+
+        As a rule of thumb, you should also fill your screen with a solid colour every frame, as to avoid 
+        seeing the last frame in the current one, and also updating your display. 
+
+{% highlight python %}
+screen.fill("black")
+
+pygame.display.flip()
+{% endhighlight %}
+
+        We can pass strings for colours in pygame, 
+        as covered in the <a href="https://pygame-guide-for-sneks.github.io/intro/colors">colors</a> article.
+
+        pygame.display.flip just updates what is shown on the window, it does the same as pygame.display.update but 
+        internally when you call pygame.display.update without any arguments it simply calls pygame.display.flip
+    </p>
+
+    <h2><a id="final-result" class="js"></a>Final result</h2>
+    <p>
+        Code:
+
+{% highlight python %}
+import pygame
+
+pygame.init()
+
+
+WIN_SIZE = (420, 250)
+screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
+
+while True:
+    events = pygame.event.get()
+
+    for event in events:
+        if event.type == pygame.QUIT:
+            raise SystemExit
+
+    screen.fill("black")
+    pygame.display.flip()
+
+{% endhighlight %}
+    </p>
+
+    <image src="https://im3.ezgif.com/tmp/ezgif-3-4213c928d6.gif">
 
     <script src="../../scripts/table_of_contents.js"></script>
 </body>
