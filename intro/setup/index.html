@@ -36,8 +36,8 @@ title: Basic window setup
     <h2><a id="prerequisites" class="js"></a>Prerequisites</h2>
     <p>
         As pygame is a library for <i>python</i>, it is necessary that you 
-        are familiar with it. This goes beyond the scope of this book, but 
-        there are some other great resources for learning Python itself, such  
+        are familiar with Python itself. This goes beyond the scope of this book, but 
+        there are some other great resources for learning Python, such  
         as <a href="">automate the boring stuff</a>.
         
         Now, luckily you don't have to be an Anthony Shaw or Tim Peters to be
@@ -95,11 +95,112 @@ python -m pip install pygame
 
     <h2><a id=""></a></h2>
 
-    <h2><a id="opening-a-window" class="js"></a>Opening a window with pygame</h2>
+    <h2><a id="project-directory" class="js"></a>Setting up the project directory</h2>
     <p>
-        Finally, we get into the actual code!
+        Throughout this whole miniseries, you will be required to work with a couple different 
+        files, it would be better and recommended if everything required to run your game is within 
+        one directory. We will create the required folders as we go, rather than take the generic 
+        approach and dump everything into our project folder that we wouldn't need(yet). But, 
+        we do still need some basic setup.
     </p>
 
+    <p>
+        First, create a folder whereever you would like, and name it whatever you want. I will be
+        naming it <b>pygame_platformer</b> and I will store it in my <b>d:\dev\projects\</b> directory.
+        Once you have your project directory created, make a <b>main.py</b> file. This is where 
+        the code for our game will be! For now that is enough. If you check the contents of your project
+        folder, it should look like this:
+{% highlight python %}
+PS D:\dev\projects\pygame_platformer> ls
+
+
+    Directory: D:\dev\projects\pygame_platformer
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        11-08-2022     22:09              0 main.py
+
+
+{% endhighlight %}
+    </p>
+
+    <h2><a id="opening-a-window" class="js"></a>Opening a window with pygame</h2>
+    <p>
+        Finally, we get into the actual code! Time to write the most legendary line 
+        at the top of our <b>main.py</b> file, 
+
+{% highlight python %}
+import pygame
+{% endhighlight %}
+    </p>
+
+    <p>
+        Alright, now recall the part where I mention you should run all code through 
+        the same launcher to which pygame was installed. For this, the safest bet is opening 
+        up the same terminal application, and using your respective python launcher to run 
+        <b>main.py</b>. For me, this is <i>py</i>  as I am on windows.
+    </p>
+
+    <p>
+        Your output should look like this:
+{% highlight python %}
+PS D:\dev\projects\pygame_platformer> py main.py
+pygame 2.1.2 (SDL 2.0.18, Python 3.10.4)
+Hello from the pygame community. https://www.pygame.org/contribute.htm
+{% endhighlight %}
+
+        If your code runs fine and you get the desired output, congrats! 🎉 You just installed 
+        pygame successfully on your system!
+
+        The Python version is to be noted, we will be using <b>3.10.4</b> in this article,
+        the pygame version will be <b>2.1.2</b>, but pygame takes backward compatibility 
+        seriously, and most older version code would work on newer verions too, and 
+        we wouldn't be introducing any of the newer features in this article. As of now 
+        2.1.2 is the latest stable release of pygame. 
+    </p>
+
+    <p>
+        Next up, after importing pygame, the first thing you do is to <i>always</i> initialize 
+        the module. If you don't do this step it can lead to problems later on, this initializes 
+        many submodules such as pygame.font, pygame.mixer, etc. which we will cover in detail later.
+{% highlight python %}
+import pygame
+
+pygame.init()
+{% endhighlight %}
+    </p>
+
+    <p>
+        Now let's actually open up a window, for this, we will look at the
+         <a href="https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode">pygame.display.set_mode</a> function. 
+        This allows us to initialize the window, and it returns a pygame.Surface when called. A 
+        pygame.Surface is a data type which allows us to manipulate and draw pixels on it, this special 
+        surface is directly linked to what shows up on the window, so everything we want to appear 
+        on the window should be drawn on this special surface first. For now, let us look at what we need in 
+        order to call pygame.display.set_mode
+
+{% highlight python %}
+import pygame
+
+pygame.init()
+
+
+WIN_SIZE = (420, 250)
+screen = pygame.display.set_mode(WIN_SIZE)
+{% endhighlight %}
+
+        Notice that we passed in a tuple containing two integers, the first integer is the <i>width</i> 
+        of the window we want to create, and the second is the <i>height</i> of the window. This fills in the size 
+        parameter which is the only required argument to call this function.
+    </p>
+
+    <p>
+        When you run this code, the window opens up and then closes immediately. Why is that? 
+        This is because there is nothing telling pygame that the window is alive, nor is the 
+        python program continuing to run. After creating that special surface we were talking about 
+        it just closes. 
+    </p>
 
     <script src="../../scripts/table_of_contents.js"></script>
 </body>
