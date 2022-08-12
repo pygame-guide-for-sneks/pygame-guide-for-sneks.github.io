@@ -5,6 +5,10 @@ pg:
 links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
 ---
 
+<head>
+    <link rel="stylesheet" href="../../styles/code_tags.css">
+</head>
+
 <body>
     <h1>Basic window setup for pygame</h1>
     <p>In this article, we will go over the structure to open and keep the window running in pygame.</p>
@@ -99,7 +103,7 @@ py3 -m pip install pygame
 {% endhighlight %}
 
     If you aren't too confident with where pygame is being installed, use your python launcher 
-    as shown in the last 2 methods to install it, and use the same launcher to run the code accordingly!
+    as shown in the last few methods to install it, and use the same launcher to run the code accordingly!
 
     </p>
 
@@ -116,8 +120,8 @@ py3 -m pip install pygame
 
     <p>
         First, create a folder whereever you would like, and name it whatever you want. I will be
-        naming it <b>pygame_platformer</b> and I will store it in my <b>d:\dev\projects\</b> directory.
-        Once you have your project directory created, make a <b>main.py</b> file. This is where 
+        naming it <code>pygame_platformer</code> and I will store it in my <code>d:\dev\projects\</code> directory.
+        Once you have your project directory created, make a <code>main.py</code> file. This is where 
         the code for our game will be! For now that is enough. If you check the contents of your project
         folder, it should look like this:
 {% highlight python %}
@@ -138,7 +142,7 @@ Mode                 LastWriteTime         Length Name
     <h2><a id="opening-a-window" class="js"></a>Opening a window with pygame</h2>
     <p>
         Finally, we get into the actual code! Time to write the most legendary line 
-        at the top of our <b>main.py</b> file, 
+        at the top of our <code>main.py</code> file, 
 
 {% highlight python %}
 import pygame
@@ -149,7 +153,7 @@ import pygame
         Alright, now recall the part where I mention you should run all code through 
         the same launcher to which pygame was installed. For this, the safest bet is opening 
         up the same terminal application, and using your respective python launcher to run 
-        <b>main.py</b>. For me, this is <i>py</i>  as I am on windows.
+        <code>main.py</code>. For me, this is <code>py</code> as I am on windows.
     </p>
 
     <p>
@@ -188,7 +192,7 @@ pygame.init()
         pygame.Surface is a data type which allows us to manipulate and draw pixels on it, this special 
         surface is directly linked to what shows up on the window, so everything we want to appear 
         on the window should be drawn on this special surface first. For now, let us look at what we need in 
-        order to call pygame.display.set_mode
+        order to call <code>pygame.display.set_mode</code>
 
 {% highlight python %}
 import pygame
@@ -220,7 +224,7 @@ while True:
 
         We notice two problems here:
         <ol>
-            <li>The window is really laggy, it hangs immediately. To close the application run ctrl + c in your terminal.</li>
+            <li>The window is really laggy, it hangs immediately. To close the application run <code>ctrl + c</code> in your terminal.</li>
             <li>The window is small, a bit too small.</li>
         </ol>
 
@@ -231,7 +235,7 @@ while True:
     <p>
         While the python program is still running, pygame has no way of understanding 
         that the window is still running, it needs some kind of system that checks for these events.
-        For this, we can grab all the window events that is going on
+        For this, we can grab all the window events that are going on
 
 {% highlight python %}
 while True:
@@ -245,22 +249,22 @@ while True:
     <p>
         It's all well and good if you want to window to be small, but generally 
         you cant really tell what size of display your user is going to have, a fix-all solution 
-        for this is to use the <b>pygame.SCALED</b> flag. This way your application directly adjusts its 
-        size to fit the user's display. Not its ratio, its size. The ratio of the window stays the same.
-        Try adding in the flag when calling pygame.display.set_mode
+        for this is to use the <code>pygame.SCALED</code> flag. This way your application directly adjusts its 
+        size to fit the user's display. Not its ratio, its size. The aspect ratio of the window stays the same.
+        Try adding in the flag when calling <code>pygame.display.set_mode</code>
 
 {% highlight python %}
 screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
 {% endhighlight %}
 
-        There we go! Our window is much more fit for our desktop now. Notice the ratio of the window stays the same. 
+        There we go! Our window is much more fit for our desktop now. Notice the aspect ratio of the window stays the same. 
     </p>
 
     <h3>Exiting the game</h3>
     <p>
         We have an interesting problem, if you tried closing the application with the X button, 
         it won't work. This is because you haven't defined what you want pygame to do when the X button is 
-        pressed. The way you exit it as of now is to use ctrl + c in the terminal you are running it from.
+        pressed. The way you exit it as of now is to use <code>ctrl + c</code> in the terminal you are running it from.
     </p>
 
     <p>
@@ -277,7 +281,7 @@ for event in events:
 {% endhighlight %}
 
         Make sure this is within the while loop. The iterator, i.e, the event object 
-        presented to us here is pretty useful. We can access it's <b>type</b> attribute 
+        presented to us here is pretty useful. We can access it's <code>type</code> attribute 
         which will be an integer, and check if that is going to be the type of event that 
         corresponds to closing the window. 
         Here's how it is done,
