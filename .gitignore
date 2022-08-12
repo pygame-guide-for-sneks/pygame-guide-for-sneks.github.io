@@ -4,3 +4,6 @@ Gemfile.lock
 _site/
 .sass-cache
 
+# Other miscellaneous items
+.vscode
+logo_files.zip
