@@ -24,20 +24,20 @@ pg: https://www.pygame.org/docs/ref/font.html
 
     <h2><a id="pygame-init" class="js"></a>Initializing Pygame</h1>
     <p>
-        Before using fonts in pygame, keep in mind that you have to initialize pygame before using the <code class="code">pygame.font</code> module. To do that, you can simply put <code class="code">pygame.init()</code> or <code class="code">pygame.font.init()</code> at the top of your python script.
+        Before using fonts in pygame, keep in mind that you have to initialize pygame before using the <code>pygame.font</code> module. To do that, you can simply put <code>pygame.init()</code> or <code>pygame.font.init()</code> at the top of your python script.
         <br>
     </p>
 
     <h2><a id="loading-fonts" class="js"></a>Loading fonts in Pygame</h1>
         <p>
             <h3>System fonts</h3>
-            To load a system font in pygame, we create an instance of the <code class="code">pygame.font.SysFont</code> class:<br>
+            To load a system font in pygame, we create an instance of the <code>pygame.font.SysFont</code> class:<br>
             
             {% highlight python %}
 pygame.font.SysFont(name, size, bold=False, italic=False) -> Font{% endhighlight %}
             
-            The class requires 2 arguments: first being the name of the font (as a string, for example: <code class="code">"comicsans"</code>), and the second being the size of the font (as an integer).<br>
-            You can also use the <code class="code">bold</code> and <code class="code">italic</code> parameters (they are booleans), which are <code class="code">False</code> by default.
+            The class requires 2 arguments: first being the name of the font (as a string, for example: <code>"comicsans"</code>), and the second being the size of the font (as an integer).<br>
+            You can also use the <code>bold</code> and <code>italic</code> parameters (they are booleans), which are <code>False</code> by default.
             
             <h4>Example:</h4>
 
@@ -46,14 +46,14 @@ font = pygame.font.SysFont("comicsans", 32, bold=True){% endhighlight %}
 
 
             <h3>Custom fonts (from a file)</h3>
-            To load a custom font in pygame, we create an instance of the <code class="code">pygame.font.Font</code> class:<br>
+            To load a custom font in pygame, we create an instance of the <code>pygame.font.Font</code> class:<br>
 
             {% highlight python %}
 Font(filename, size) -> Font
 Font(pathlib.Path, size) -> Font
 Font(object, size) -> Font{% endhighlight %}
             
-            The class requires 2 arguments: first being the file object or the name of the font file (as a string, for example: <code class="code">"my_font.ttf"</code>), and the second being the size of the font (as an integer).
+            The class requires 2 arguments: first being the file object or the name of the font file (as a string, for example: <code>"my_font.ttf"</code>), and the second being the size of the font (as an integer).
 
             <h4>Example:</h4>
 
@@ -62,7 +62,7 @@ font = pygame.font.Font("arima.ttf", 32){% endhighlight %}
 
 
             <h3>Default font</h3>
-            You can also use the default pygame font (which is freesansbold) as a <code class="code">pygame.font.Font</code>. To do this, you can use <code class="code">None</code> as the <code class="code">font</code> argument, for example:<br>
+            You can also use the default pygame font (which is freesansbold) as a <code>pygame.font.Font</code>. To do this, you can use <code>None</code> as the <code>font</code> argument, for example:<br>
 
             {% highlight python %}
 font = pygame.font.Font(None, 32){% endhighlight %}
@@ -71,18 +71,18 @@ font = pygame.font.Font(None, 32){% endhighlight %}
 
     <h2><a id="rendering-fonts" class="js"></a>Rendering fonts in Pygame</h1>
     <p>
-        To render a <code class="code">pygame.font.Font</code> object, we can use the <code class="code">pygame.font.Font.render</code> method:<br>
+        To render a <code>pygame.font.Font</code> object, we can use the <code>pygame.font.Font.render</code> method:<br>
         {% highlight python %}
 render(text, antialias, color, background=None) -> Surface{% endhighlight %}
         As we can see, the method requires 3 arguments (and 1 optional argument):
         <ul>
-            <li><code class="code">text</code>, which is a string with the text you want to render;</li>
-            <li><code class="code">antialias</code>, which is a boolean indicating whether you want your text to have smooth edges;</li>
-            <li><code class="code">color</code>, which can be a <code class="code">tuple[int, int, int]</code> or a string.</li>
-            <li><code class="code">background</code>, which is a color value and can be a <code class="code">tuple[int, int, int]</code> or a string.</li>
+            <li><code>text</code>, which is a string with the text you want to render;</li>
+            <li><code>antialias</code>, which is a boolean indicating whether you want your text to have smooth edges;</li>
+            <li><code>color</code>, which can be a <code>tuple[int, int, int]</code> or a string.</li>
+            <li><code>background</code>, which is a color value and can be a <code>tuple[int, int, int]</code> or a string.</li>
         </ul>
 
-        The method returns a <code class="code">pygame.Surface</code>. Here's some docs from the <a href="https://pygame.org/docs">pygame documentation</a>: "This creates a new Surface with the specified text rendered on it. pygame provides no way to directly draw text on an existing Surface: instead you must use Font.render() to create an image (Surface) of the text, then blit this image onto another Surface. The text can only be a single line: newline characters are not rendered."
+        The method returns a <code>pygame.Surface</code>. Here's some docs from the <a href="https://pygame.org/docs">pygame documentation</a>: "This creates a new Surface with the specified text rendered on it. pygame provides no way to directly draw text on an existing Surface: instead you must use Font.render() to create an image (Surface) of the text, then blit this image onto another Surface. The text can only be a single line: newline characters are not rendered."
         
         <h4>Example:</h4>
         {% highlight python %}
