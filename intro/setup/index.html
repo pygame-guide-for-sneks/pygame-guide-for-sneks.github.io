@@ -24,9 +24,10 @@ links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
 
     <h2><a id="what-is-pygame" class="js"></a>What is pygame?</h2>
     <p>
-        Before we get into the nitty gritty parts of it, let us first understand what pygame is.
-        Pygame is a free and open source library for the Python programming language, which allows 
-        us to build multimedia applications such as video games.
+        Before we get into the nitty gritty parts of it, let us first understand what pygame is. 
+        Pygame is a free and open source library for the Python programming language built on top 
+        of <a href="https://www.libsdl.org/">SDL2</a>. Pygame allows us to build multimedia 
+        applications such as video games.
     
     </p>
     <p>
@@ -34,7 +35,8 @@ links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
         on to the screen, much like SDL2, but with extended utility in various forms 
         that makes it easier to use. Pygame gives you direct control over how you 
         want the code to run, this means you could also easily do things that could 
-        drastically drop performance if you aren't careful. This article guides you 
+        drastically cause the drop of performance of your application 
+        if you aren't careful. This article guides you 
         through how to avoid such things, while also giving you deeper 
         understanding of pygame and how to use it.         
     </p>
@@ -119,8 +121,8 @@ py3 -m pip install pygame
     </p>
 
     <p>
-        First, create a folder whereever you would like, and name it whatever you want. I will be
-        naming it <code>pygame_platformer</code> and I will store it in my <code>d:\dev\projects\</code> directory.
+        First, create a folder wherever you would like, and name it whatever you want. I will be
+        naming it <code>pygame_platformer</code> and I will store it in my <code>D:\dev\projects\</code> directory.
         Once you have your project directory created, make a <code>main.py</code> file. This is where 
         the code for our game will be! For now that is enough. If you check the contents of your project
         folder, it should look like this:
@@ -164,7 +166,7 @@ pygame 2.1.2 (SDL 2.0.18, Python 3.10.4)
 Hello from the pygame community. https://www.pygame.org/contribute.htm
 {% endhighlight %}
 
-        If your code runs fine and you get the desired output, congrats! 🎉 You just installed 
+        If your code runs fine and you get the desired output, congrats 🎉 ! You just installed 
         pygame successfully on your system!
 
         The Python version is to be noted, we will be using <b>3.10.4</b> in this article,
@@ -188,8 +190,8 @@ pygame.init()
     <p>
         Now let's actually open up a window, for this, we will look at the
          <a href="https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode">pygame.display.set_mode</a> function. 
-        This allows us to initialize the window, and it returns a pygame.Surface when called. A 
-        pygame.Surface is a data type which allows us to manipulate and draw pixels on it, this special 
+        This allows us to initialize the window, and it returns a <code>pygame.Surface</code> when called. A 
+        <code>pygame.Surface</code> is a data type which allows us to manipulate and draw pixels on it. This special 
         surface is directly linked to what shows up on the window, so everything we want to appear 
         on the window should be drawn on this special surface first. For now, let us look at what we need in 
         order to call <code>pygame.display.set_mode</code>
@@ -212,7 +214,7 @@ screen = pygame.display.set_mode(WIN_SIZE)
     <p>
         When you run this code, the window opens up and then closes immediately. Why is that? 
         This is because there is nothing telling pygame that the window is alive, nor is the 
-        python program continuing to run. After creating that special surface we were talking about 
+        python program continuing to run. After creating that special surface we were talking about, 
         it just closes. To keep the window alive and running, we need to keep the Python program running. 
         To do this, let us create a while loop. From this point onward, the code presented is assumed to be added at the end 
         of the file unless mentioned otherwise. 
@@ -250,7 +252,7 @@ while True:
         It's all well and good if you want to window to be small, but generally 
         you cant really tell what size of display your user is going to have, a fix-all solution 
         for this is to use the <code>pygame.SCALED</code> flag. This way your application directly adjusts its 
-        size to fit the user's display. Not its ratio, its size. The aspect ratio of the window stays the same.
+        size to fit the user's display. Not its aspect ratio, its size. The aspect ratio of the window stays the same.
         Try adding in the flag when calling <code>pygame.display.set_mode</code>
 
 {% highlight python %}
@@ -292,7 +294,7 @@ for event in events:
         pass
 {% endhighlight %}
 
-        pygame.QUIT is the integer constant that represents trying to quit the application. 
+        <code>pygame.QUIT</code> is the integer constant that represents trying to quit the application. 
         Now, you can guess what to do next, we need to exit the loop. We ran this using a 
 
 {% highlight python %}
@@ -301,7 +303,8 @@ while True:
 
         So the only way to exit this is to throw an exception, the way one of the 
         lead contributors of the pygame project itself like to do it, and I have adopted as well, 
-        is to raise SystemExit. Alternatively you can import sys, and run sys.exit(). 
+        is to <code>raise SystemExit</code>. Alternatively you can <code>import sys</code>, and run 
+        <code>sys.exit()</code>. 
 
 {% highlight python %}
 while True:
@@ -326,7 +329,8 @@ pygame.display.flip()
         We can pass strings for colours in pygame, 
         as covered in the <a href="https://pygame-guide-for-sneks.github.io/intro/colors">colors</a> article.
 
-        pygame.display.flip just updates what is shown on the window, it does the same as pygame.display.update but 
+        <code>pygame.display.flip</code> just updates what is shown on the window, it does the same as 
+        <code>pygame.display.update</code> but 
         internally when you call pygame.display.update without any arguments it simply calls pygame.display.flip
     </p>
 
