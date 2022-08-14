@@ -111,7 +111,7 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
             throughout this
             tutorial:
 
-            {% highlight python %}
+{% highlight python %}
 class Actor:
     def __init__(self):
         pass {% endhighlight %}
@@ -119,13 +119,14 @@ class Actor:
             But what if we want to have our player have some actual data? How do we do that? The answer is attributes. We can define class attributes that persist even when the
             constructor has finished and these attributes can be accessed from other places in your code. So, let's define a few attributes:
 
-        {% highlight python %}
+{% highlight python %}
 class Actor:
     def __init__(self):
         self.health = 100
         self.attack = 5
         self.defense = 0
-        self.inventory = ['sword', 'shield'] {% endhighlight %}
+        self.inventory = ['sword', 'shield']
+{% endhighlight %}
 
             Alright, let's parse what we see here. When we create a <code>Actor</code> instance, the constructor is going to assign the values
             health, attack, defense, and some inventory to something called <code>self</code>. <code>self</code>
@@ -138,10 +139,9 @@ class Actor:
             
             <iframe width="800px" height="200px" class="python-embed"
                 src="https://godbolt.org/e#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,source:'class+Player:%0A++++def+__init__(self):%0A++++++++self.health+%3D+100%0A++++++++self.attack+%3D+5%0A++++++++self.defense+%3D+0%0A++++++++self.inventory+%3D+%5B!'sword!',+!'shield!'%5D%0A++++++++potion_effects+%3D+%5B!'strength!',+!'swiftness!'%5D%0A%0Aplayer+%3D+Player()%0Aprint(f%22%7Bplayer.health+%3D+%7D%22)%0Aprint(f%22%7Bplayer.attack+%3D+%7D%22)%0Aprint(f%22%7Bplayer.defense+%3D+%7D%22)%0Aprint(f%22%7Bplayer.inventory+%3D+%7D%22)%0Aprint(f%22%7Bplayer.potion_effects+%3D+%7D%22)'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
-            We can see that all of the attributes we prefixed with <code
-                class="code">self</code>
+            We can see that all of the attributes we prefixed with <code>self</code>
             printed just fine, but as soon as we tried to print the
-            value that wasn't prefixed, we got an <code class="code">AttributeError</code>
+            value that wasn't prefixed, we got an <code>AttributeError</code>
             which
             means that the attribute we tried to access does not exist.
         </p>
