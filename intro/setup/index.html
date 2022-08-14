@@ -1,0 +1,368 @@
+---
+layout: default
+title: Basic window setup
+pg: 
+links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
+---
+
+<head>
+    <link rel="stylesheet" href="../../styles/code_tags.css">
+</head>
+
+<body>
+    <h1>Basic window setup for pygame</h1>
+    <p>In this article, we will go over the structure to open and keep the window running in pygame.</p>
+
+    <h2>Table of contents</h2>
+    <p>
+        <ol id="toc">
+            <!--
+            To be filled by javascript
+            -->
+        </ol>
+    </p>
+
+    <h2><a id="what-is-pygame" class="js"></a>What is Pygame?</h2>
+    <p>
+        Before we get into the nitty gritty parts of it, let us first understand what pygame is. 
+        Pygame is a free and open source library for the Python programming language built on top 
+        of <a href="https://www.libsdl.org/">SDL2</a>. Pygame allows us to build multimedia 
+        applications such as video games.
+    
+    </p>
+    <p>
+        Pygame provides the very basic utility to draw and manipulate pixels 
+        on to the screen, much like SDL2, but with extended utility in various forms 
+        that makes it easier to use. Pygame gives you direct control over how you 
+        want the code to run, this means you could also easily do things that could 
+        drastically cause the drop of performance of your application 
+        if you aren't careful. This article guides you 
+        through how to avoid such things, while also giving you deeper 
+        understanding of pygame and how to use it.         
+    </p>
+
+    <h2><a id="prerequisites" class="js"></a>Prerequisites</h2>
+    <p>
+        As pygame is a library for <i>python</i>, it is necessary that you 
+        are familiar with Python itself. This goes beyond the scope of this book, but 
+        there are some other great resources for learning Python, such  
+        as <a href="https://automatetheboringstuff.com/">automate the boring stuff</a>.
+        
+        Now, luckily you don't have to be an Anthony Shaw or Tim Peters to be
+        able to use pygame, just some basic Python will do. 
+        This includes:
+            <ul>
+                <li>Understanding how types and instances work</li>
+                <li>Knowing how to access and modify attributes of objects</li>
+                <li>Familiarity with basic OOP(Object Oriented Programming)</li>
+                <li>Basic control flow keywords such as - for, while, break, if, elif, else</li>
+                <li>Functions</li>
+            </ul>
+        
+        Since in Python everything is an object, that is also how you would 
+        interact with the utilities provided through pygame, so knowing how they work 
+        is crucial.
+    </p>
+
+    <h2><a id="installation" class="js"></a>Installing Pygame</h2>
+    <p>
+        Pygame can be installed through <a href="https://pypi.org">pypi</a> by
+        using the pip package manager.
+
+        This is as simple as,
+    </p>
+
+    <p>
+{% highlight python %}
+pip install pygame
+{% endhighlight %}
+
+    BUT, how you access your pip depends on your Operating System and what interpreter 
+    you plan on using to run the code you will be writing throughout this article. 
+
+    For the sake of this article, we recommend installing pygame globally, and using your global interpreter 
+    to run your code. 
+    
+    For windows, the way you access pip can be 
+
+
+{% highlight python %}
+pip install pygame 
+# Or
+
+# Accessing pip as a module through your python launcher
+
+# For windows
+py -m pip install pygame 
+
+# For unix (Mac/Linux)
+python3 -m pip install pygame 
+
+# Relevant to both 
+python -m pip install pygame 
+py3 -m pip install pygame
+
+{% endhighlight %}
+
+    If you aren't too confident with where pygame is being installed, use your python launcher 
+    as shown in the last few methods to install it, and use the same launcher to run the code accordingly!
+
+    </p>
+
+    <h2><a id=""></a></h2>
+
+    <h2><a id="project-directory" class="js"></a>Setting Up the Project Directory</h2>
+    <p>
+        Throughout this whole miniseries, you will be required to work with a couple different 
+        files, it would be better and recommended if everything required to run your game is within 
+        one directory. We will create the required folders as we go, rather than take the generic 
+        approach and dump everything into our project folder that we wouldn't need(yet). But, 
+        we do still need some basic setup.
+    </p>
+
+    <p>
+        First, create a folder wherever you would like, and name it whatever you want. I will be
+        naming it <code>pygame_platformer</code> and I will store it in my <code>D:\dev\projects\</code> directory.
+        Once you have your project directory created, make a <code>main.py</code> file. This is where 
+        the code for our game will be! For now that is enough. If you check the contents of your project
+        folder, it should look like this:
+{% highlight python %}
+PS D:\dev\projects\pygame_platformer> ls
+
+
+    Directory: D:\dev\projects\pygame_platformer
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        11-08-2022     22:09              0 main.py
+
+
+{% endhighlight %}
+    </p>
+
+    <h2><a id="opening-a-window" class="js"></a>Opening a Window With Pygame</h2>
+    <p>
+        Finally, we get into the actual code! Time to write the most legendary line 
+        at the top of our <code>main.py</code> file, 
+
+{% highlight python %}
+import pygame
+{% endhighlight %}
+    </p>
+
+    <p>
+        Alright, now recall the part where I mention you should run all code through 
+        the same launcher to which pygame was installed. For this, the safest bet is opening 
+        up the same terminal application, and using your respective python launcher to run 
+        <code>main.py</code>. For me, this is <code>py</code> as I am on windows.
+    </p>
+
+    <p>
+        Your output should look like this:
+{% highlight python %}
+PS D:\dev\projects\pygame_platformer> py main.py
+pygame 2.1.2 (SDL 2.0.18, Python 3.10.4)
+Hello from the pygame community. https://www.pygame.org/contribute.htm
+{% endhighlight %}
+
+        If your code runs fine and you get the desired output, congrats 🎉 ! You just installed 
+        pygame successfully on your system!
+
+        The Python version is to be noted, we will be using <b>3.10.4</b> in this article,
+        the pygame version will be <b>2.1.2</b>, but pygame takes backward compatibility 
+        seriously, and most older version code would work on newer verions too, and 
+        we wouldn't be introducing any of the newer features in this article. As of now 
+        2.1.2 is the latest stable release of pygame. 
+    </p>
+
+    <p>
+        Next up, after importing pygame, the first thing you do is to <i>always</i> initialize 
+        the module. If you don't do this step it can lead to problems later on, this initializes 
+        many submodules such as pygame.font, pygame.mixer, etc. which we will cover in detail later.
+{% highlight python %}
+import pygame
+
+pygame.init()
+{% endhighlight %}
+    </p>
+
+    <p>
+        Now let's actually open up a window, for this, we will look at the
+         <a href="https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode">pygame.display.set_mode</a> function. 
+        This allows us to initialize the window, and it returns a <code>pygame.Surface</code> when called. A 
+        <code>pygame.Surface</code> is a data type which allows us to manipulate and draw pixels on it. This special 
+        surface is directly linked to what shows up on the window, so everything we want to appear 
+        on the window should be drawn on this special surface first. For now, let us look at what we need in 
+        order to call <code>pygame.display.set_mode</code>
+
+{% highlight python %}
+import pygame
+
+pygame.init()
+
+
+WIN_SIZE = (420, 250)
+screen = pygame.display.set_mode(WIN_SIZE)
+{% endhighlight %}
+
+        Notice that we passed in a tuple containing two integers, the first integer is the <i>width</i> 
+        of the window we want to create, and the second is the <i>height</i> of the window. This fills in the size 
+        parameter which is the only required argument to call this function.
+    </p>
+
+    <p>
+        When you run this code, the window opens up and then closes immediately. Why is that? 
+        This is because there is nothing telling pygame that the window is alive, nor is the 
+        python program continuing to run. After creating that special surface we were talking about, 
+        it just closes. To keep the window alive and running, we need to keep the Python program running. 
+        To do this, let us create a while loop. From this point onward, the code presented is assumed to be added at the end 
+        of the file unless mentioned otherwise. 
+
+{% highlight python %}
+while True:
+    pass
+{% endhighlight %}
+
+        We notice two problems here:
+        <ol>
+            <li>The window is really laggy, it hangs immediately. To close the application run <code>ctrl + c</code> in your terminal.</li>
+            <li>The window is small, a bit too small.</li>
+        </ol>
+
+        We will address both the issues present here. 
+    </p>
+
+    <h3>The window is really laggy.</h3>
+    <p>
+        While the python program is still running, pygame has no way of understanding 
+        that the window is still running, it needs some kind of system that checks for these events.
+        For this, we can grab all the window events that are going on
+
+{% highlight python %}
+while True:
+    events = pygame.event.get()
+{% endhighlight %}
+
+        This should make it responsive, and not hang. 
+    </p>
+
+    <h3>The window is small.</h3>
+    <p>
+        It's all well and good if you want to window to be small, but generally 
+        you cant really tell what size of display your user is going to have, a fix-all solution 
+        for this is to use the <code>pygame.SCALED</code> flag. This way your application directly adjusts its 
+        size to fit the user's display. Not its aspect ratio, its size. The aspect ratio of the window stays the same.
+        Try adding in the flag when calling <code>pygame.display.set_mode</code>
+
+{% highlight python %}
+screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
+{% endhighlight %}
+
+        There we go! Our window is much more fit for our desktop now. Notice the aspect ratio of the window stays the same. 
+    </p>
+
+    <h3>Exiting the game</h3>
+    <p>
+        We have an interesting problem, if you tried closing the application with the X button, 
+        it won't work. This is because you haven't defined what you want pygame to do when the X button is 
+        pressed. The way you exit it as of now is to use <code>ctrl + c</code> in the terminal you are running it from.
+    </p>
+
+    <p>
+        Obviously, this isn't ideal, at all. Remember how we grabbed all the events 
+        that were going on in the window? That actually includes closing it as well. 
+        All we have to do is check if the window is being closed(i.e, the X button is being pressed),
+        and if it is we just need to exit our while loop. 
+
+        For this, we first iterate over the events 
+
+{% highlight python %}
+for event in events:
+    pass
+{% endhighlight %}
+
+        Make sure this is within the while loop. The iterator, i.e, the event object 
+        presented to us here is pretty useful. We can access it's <code>type</code> attribute 
+        which will be an integer, and check if that is going to be the type of event that 
+        corresponds to closing the window. 
+        Here's how it is done,
+
+{% highlight python %}
+for event in events:
+    if event.type == pygame.QUIT:
+        pass
+{% endhighlight %}
+
+        <code>pygame.QUIT</code> is the integer constant that represents trying to quit the application. 
+        Now, you can guess what to do next, we need to exit the loop. We ran this using a 
+
+{% highlight python %}
+while True:
+{% endhighlight %}
+
+        So the only way to exit this is to throw an exception, the way one of the 
+        lead contributors of the pygame project itself like to do it, and I have adopted as well, 
+        is to <code>raise SystemExit</code>. Alternatively you can <code>import sys</code>, and run 
+        <code>sys.exit()</code>. 
+
+{% highlight python %}
+while True:
+    events = pygame.event.get()
+
+    for event in events:
+        if event.type == pygame.QUIT:
+            raise SystemExit
+{% endhighlight %}
+        
+        And there we have it! Our game should close when we press the X button accordingly. 
+
+        As a rule of thumb, you should also fill your screen with a solid colour every frame, as to avoid 
+        seeing the last frame in the current one, and also updating your display. 
+
+{% highlight python %}
+screen.fill("black")
+
+pygame.display.flip()
+{% endhighlight %}
+
+        We can pass strings for colours in pygame, 
+        as covered in the <a href="https://pygame-guide-for-sneks.github.io/intro/colors">colors</a> article.
+
+        <code>pygame.display.flip</code> just updates what is shown on the window, it does the same as 
+        <code>pygame.display.update</code> but 
+        internally when you call pygame.display.update without any arguments it simply calls pygame.display.flip
+    </p>
+
+    <h2><a id="final-result" class="js"></a>Final Result</h2>
+    <p>
+        Code:
+
+{% highlight python %}
+import pygame
+
+pygame.init()
+
+
+WIN_SIZE = (420, 250)
+screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
+
+while True:
+    events = pygame.event.get()
+
+    for event in events:
+        if event.type == pygame.QUIT:
+            raise SystemExit
+
+    screen.fill("black")
+    pygame.display.flip()
+
+{% endhighlight %}
+    </p>
+
+    <image src="../../assets/ezgif-3-4213c928d6.gif">
+    {% include footer.html %}
+
+    <script src="../../scripts/table_of_contents.js"></script>
+</body>
+
