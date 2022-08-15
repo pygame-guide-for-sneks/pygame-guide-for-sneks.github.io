@@ -316,9 +316,46 @@ while True:
 {% endhighlight %}
         
         And there we have it! Our game should close when we press the X button accordingly. 
+    </p>
+        
+    <p>
+        There are many different styles and ways to close a pygame application, 
+        you can raise an exception like shown here or use a variable to determine if the game is still running, 
+{% highlight python %}
+is_running = True 
+while is_running:
+    events = pygame.event.get()
 
+    for event in events:
+        if event.type == pygame.QUIT:
+            is_running = False
+{% endhighlight %}
+
+        There are some benefits to this, the application only closes <i>after</i> it completes the last 
+        iteration, rather than stopping midway! 
+
+        Another thing you can add to this is quitting <code>pygame</code> after the while loop. 
+        This can solve problems like IDLE keeping the window open even after you ended the application.
+
+{% highlight python %}
+while is_running:
+    events = pygame.event.get()
+
+    for event in events:
+        if event.type == pygame.QUIT:
+            is_running = False
+
+pygame.quit()
+{% endhighlight %}
+
+    </p>
+    
+
+    <p>
         As a rule of thumb, you should also fill your screen with a solid colour every frame, as to avoid 
         seeing the last frame in the current one, and also updating your display. 
+    </p>
+
 
 {% highlight python %}
 screen.fill("black")
@@ -347,15 +384,18 @@ pygame.init()
 WIN_SIZE = (420, 250)
 screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
 
+is_running = True
 while True:
     events = pygame.event.get()
 
     for event in events:
         if event.type == pygame.QUIT:
-            raise SystemExit
+            is_running = False
 
     screen.fill("black")
     pygame.display.flip()
+
+pygame.quit()
 
 {% endhighlight %}
     </p>
