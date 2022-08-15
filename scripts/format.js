@@ -13,10 +13,10 @@ function toc() {
         html += '<li><a href="#' + cls + '">' + title + '</a></li>';
     }
 
-    tableOfContents.innerHTML = html;
+    table_of_contents.innerHTML = html;
 }
 
-if (table_of_contents) { toc(); }
+if (table_of_contents) {toc(); }
 
 // Links that open new tabs
 for (let i = 0; i < new_tabs.length; i++) {
