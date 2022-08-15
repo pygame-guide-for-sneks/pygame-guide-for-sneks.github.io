@@ -1,9 +1,14 @@
---- <!--Remove comments in this front matter, including this one-->
-layout: default <!--Keep this default, not sure what it does XD-->
-title: Some Title <!--Change to whatever you want the title to be-->
-pg: https://www.pygame.org/docs <!--Whatever pygame doc link you want leave empty for default homepage-->
-links: [[https://www.google.com, Google], [https://www.weather.com, Weather]] <!--leave this blank if you don't want any extra links-->
+<!-- Remove comments in this front matter, including this one -->
 ---
+layout: default <!-- Keep this default, selects the layout of the html file -->
+title: Some Title <!-- Change to whatever you want the title to be -->
+pg: https://www.pygame.org/docs <!-- Whatever pygame doc link you want; leave empty for default homepage -->
+links: [[https://www.google.com, Google], [https://www.weather.com, Weather]] <!-- leave this blank if you don't want any extra  -->
+
+prev_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a "Previous page" button -->
+next_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a "Next page" button -->
+---
+
 <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
@@ -39,12 +44,8 @@ links: [[https://www.google.com, Google], [https://www.weather.com, Weather]] <!
         tag just below this
     -->
 
-    <!--This sets up the footer from the template-->
-    <hr>
+    <!--This sets up the footer from the template-->    
     {% include footer.html %}
-
-    <!--This is the table of contents javascript-->
-    <script src="../../scripts/table_of_contents.js"></script>
 </body>
 
 <!--This is a code block template. The endhighlight needs to be on the same line

@@ -1,4 +1,18 @@
 <div>
+    {% if page.prev_page %}
+        <button class="button-link button-left" data-url="{{ page.prev_page[0] }}" data-type="prev">{{ page.prev_page[1] }}</button>
+    {% endif %}
+
+    {% if page.next_page %}
+        <button class="button-link button-right" data-url="{{ page.next_page[0] }}" data-type="next">{{ page.next_page[1] }}</button>
+    {% endif %}
+
+    <div style="clear: both;"></div>
+</div>
+
+<hr>
+
+<div>
     <div style="float:left; width:50%;">
         <div>
             <h3>Useful Stuffs</h3>

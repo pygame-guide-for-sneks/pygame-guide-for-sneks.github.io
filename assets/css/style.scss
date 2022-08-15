@@ -1,0 +1,12 @@
+---
+---
+
+
+// It works, but VSCode doesn't like it :(
+@import "jekyll-theme-midnight";
+
+@import "{{ site.theme }}";
+
+section {
+    margin-top: 10px
+}
