@@ -19,3 +19,11 @@ button:hover {
 .button-right {
     float: right;
 }
+
+code {
+    margin: -5px;
+}
+
+.python-embed {
+    border: 1px solid black;
+}

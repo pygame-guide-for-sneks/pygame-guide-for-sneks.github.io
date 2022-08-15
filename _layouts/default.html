@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 {% seo %}
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -49,9 +51,12 @@
           </p>
           <hr>
           
-          <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+          <span class="credits left">Project maintained by <a class="new-tab" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a class="new-tab" href="https://twitter.com/mattgraham">mattgraham</a></span>
         </div>
+
+        <h1>{{ page.title }}</h1>
+        <hr> 
 
         {{ content }}
 
