@@ -1,8 +1,9 @@
-# Jekylle 
+# Jekyll
 Gemfile
 Gemfile.lock
 _site/
 .sass-cache
+.jekyll-cache
 
 # Other miscellaneous items
 .vscode

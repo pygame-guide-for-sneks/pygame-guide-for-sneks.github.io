@@ -1,0 +1,21 @@
+button {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border-width: 3px;
+    background-color: #615858;
+    color: #e8e8e8;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #736868;
+}
+
+.button-left {
+    float: left;
+}
+
+.button-right {
+    float: right;
+}
