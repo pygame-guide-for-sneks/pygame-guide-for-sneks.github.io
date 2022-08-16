@@ -1,3 +1,5 @@
+@import "onedark.css";
+
 button {
     padding: 12px 20px;
     border-radius: 10px;
@@ -18,4 +20,12 @@ button:hover {
 
 .button-right {
     float: right;
+}
+
+code {
+    margin: -5px;
+}
+
+.python-embed {
+    border: 1px solid black;
 }
