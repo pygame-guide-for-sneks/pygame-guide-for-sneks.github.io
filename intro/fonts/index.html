@@ -78,7 +78,7 @@ render(text, antialias, color, background=None) -> Surface{% endhighlight %}
         <ul>
             <li><code>text</code>, which is a string with the text you want to render;</li>
             <li><code>antialias</code>, which is a boolean indicating whether you want your text to have smooth edges;</li>
-            <li><code>color</code>, which can be a <code>tuple[int, int, int]</code> or a string.</li>
+            <li><code>color</code>, which can be a <code>tuple[int, int, int]</code>, <code>tuple[int, int, int, int]</code> (4th integer is the alpha value), <code>int</code>, <code>pygame.Color</code>, or <code>str</code>.</li>
             <li><code>background</code>, which is a color value and can be a <code>tuple[int, int, int]</code> or a string.</li>
         </ul>
 
