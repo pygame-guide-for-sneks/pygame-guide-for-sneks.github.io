@@ -3,14 +3,7 @@ layout: default
 title: Fonts in Pygame
 pg: https://www.pygame.org/docs/ref/font.html
 ---
-<head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/styles/code_tags.css">
-</head>
 <body>
-    <h1>{{ page.title }}</h1>
-
     <p>
         In this article, we'll learn how to use custom and system fonts in Pygame.
     </p>
@@ -82,7 +75,7 @@ render(text, antialias, color, background=None) -> Surface{% endhighlight %}
             <li><code>background</code>, which is a color value and can be a <code>tuple[int, int, int]</code> or a string.</li>
         </ul>
 
-        The method returns a <code>pygame.Surface</code>. Here's some docs from the <a href="https://pygame.org/docs">pygame documentation</a>: "This creates a new Surface with the specified text rendered on it. pygame provides no way to directly draw text on an existing Surface: instead you must use Font.render() to create an image (Surface) of the text, then blit this image onto another Surface. The text can only be a single line: newline characters are not rendered."
+        The method returns a <code>pygame.Surface</code>. Here's some docs from the <a class="new-tab" href="https://pygame.org/docs">pygame documentation</a>: "This creates a new Surface with the specified text rendered on it. pygame provides no way to directly draw text on an existing Surface: instead you must use Font.render() to create an image (Surface) of the text, then blit this image onto another Surface. The text can only be a single line: newline characters are not rendered."
         
         <h4>Example:</h4>
         {% highlight python %}

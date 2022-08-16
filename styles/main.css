@@ -1,4 +1,4 @@
-@import "onedark.css";
+@import "onedark.css"; /* for syntax highlighting color theme */
 
 button {
     padding: 12px 20px;
@@ -29,3 +29,13 @@ code {
 .python-embed {
     border: 1px solid black;
 }
+
+.lineno {
+    width: 100px;
+}
+
+/* 
+    Javascript handles some formatting with /scripts/format.js 
+    and that will probably override what's in here if there's
+    a conflict
+*/

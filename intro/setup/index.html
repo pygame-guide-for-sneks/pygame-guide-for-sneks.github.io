@@ -1,16 +1,10 @@
 ---
 layout: default
-title: Basic window setup
+title: Basic Window Setup in Pygame
 pg: 
 links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
 ---
-
-<head>
-    <link rel="stylesheet" href="../../styles/code_tags.css">
-</head>
-
 <body>
-    <h1>Basic window setup for pygame</h1>
     <p>In this article, we will go over the structure to open and keep the window running in pygame.</p>
 
     <h2>Table of contents</h2>
@@ -26,7 +20,7 @@ links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
     <p>
         Before we get into the nitty gritty parts of it, let us first understand what pygame is. 
         Pygame is a free and open source library for the Python programming language built on top 
-        of <a href="https://www.libsdl.org/">SDL2</a>. Pygame allows us to build multimedia 
+        of <a class="new-tab" href="https://www.libsdl.org/">SDL2</a>. Pygame allows us to build multimedia 
         applications such as video games.
     
     </p>
@@ -46,7 +40,7 @@ links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
         As pygame is a library for <i>python</i>, it is necessary that you 
         are familiar with Python itself. This goes beyond the scope of this book, but 
         there are some other great resources for learning Python, such  
-        as <a href="https://automatetheboringstuff.com/">automate the boring stuff</a>.
+        as <a class="new-tab" href="https://automatetheboringstuff.com/">automate the boring stuff</a>.
         
         Now, luckily you don't have to be an Anthony Shaw or Tim Peters to be
         able to use pygame, just some basic Python will do. 
@@ -66,7 +60,7 @@ links: [[https://automatetheboringstuff.com/, Automate the Boring Stuff]]
 
     <h2><a id="installation" class="js"></a>Installing Pygame</h2>
     <p>
-        Pygame can be installed through <a href="https://pypi.org">pypi</a> by
+        Pygame can be installed through <a class="new-tab" href="https://pypi.org">pypi</a> by
         using the pip package manager.
 
         This is as simple as,
@@ -163,7 +157,7 @@ import pygame
 {% highlight python %}
 PS D:\dev\projects\pygame_platformer> py main.py
 pygame 2.1.2 (SDL 2.0.18, Python 3.10.4)
-Hello from the pygame community. https://www.pygame.org/contribute.htm
+Hello from the pygame community. https://www.pygame.org/contribute.html
 {% endhighlight %}
 
         If your code runs fine and you get the desired output, congrats 🎉 ! You just installed 
@@ -189,7 +183,7 @@ pygame.init()
 
     <p>
         Now let's actually open up a window, for this, we will look at the
-         <a href="https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode">pygame.display.set_mode</a> function. 
+         <a class="new-tab" href="https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode">pygame.display.set_mode</a> function. 
         This allows us to initialize the window, and it returns a <code>pygame.Surface</code> when called. A 
         <code>pygame.Surface</code> is a data type which allows us to manipulate and draw pixels on it. This special 
         surface is directly linked to what shows up on the window, so everything we want to appear 
