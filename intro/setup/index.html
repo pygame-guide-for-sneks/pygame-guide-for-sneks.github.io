@@ -385,7 +385,7 @@ WIN_SIZE = (420, 250)
 screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
 
 is_running = True
-while True:
+while is_running:
     events = pygame.event.get()
 
     for event in events:
