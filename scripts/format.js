@@ -1,6 +1,7 @@
 let new_tabs = document.getElementsByClassName("new-tab");
 let linked_buttons = document.getElementsByClassName("button-link");
 let table_of_contents = document.getElementById('toc');
+let linenos = document.getElementsByClassName('lineno');
 
 // Table of contents
 function toc() {
@@ -19,15 +20,14 @@ function toc() {
 if (table_of_contents) {toc(); }
 
 // Links that open new tabs
-for (let i = 0; i < new_tabs.length; i++) {
-    new_tabs[i].target = "_blank";
-    new_tabs[i].rel = "noopener noreferrer";
+for (let link of new_tabs) {
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
 }
 
 
 // Buttons that open links
-for (let i = 0; i < linked_buttons.length; i++) {
-    linked_button = linked_buttons[i];
+for (let linked_button of linked_buttons) {
     switch (linked_button.dataset.type) {
         case "prev":
             linked_button.innerHTML = "Previous page:<br>" + linked_button.innerHTML;
@@ -39,7 +39,15 @@ for (let i = 0; i < linked_buttons.length; i++) {
 
     linked_button.onclick = function () {
         // HAS to be linked_buttons[i] instead of linked_button; I *think* it's because
-        // it just takes the last linked ubtton's url cuz of the loop
-        location.href = linked_buttons[i].dataset.url;
+        // it just takes the last linked button's url cuz of the loop
+        location.href = linked_button.dataset.url;
     }
+}
+
+// code blocks with line numbers
+// This edits CSS so if your CSS isn't working this is probably overriding
+for (let elem of linenos) {
+    elem.style = "width: 16px;";
+    let p = elem.parentElement;
+    p.style = "width: 16px;";
 }
