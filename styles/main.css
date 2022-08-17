@@ -30,10 +30,6 @@ code {
     border: 1px solid black;
 }
 
-.lineno {
-    width: 100px;
-}
-
 /* 
     Javascript handles some formatting with /scripts/format.js 
     and that will probably override what's in here if there's
