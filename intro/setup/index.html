@@ -322,13 +322,13 @@ while True:
         There are many different styles and ways to close a pygame application, 
         you can raise an exception like shown here or use a variable to determine if the game is still running, 
 {% highlight python %}
-is_running = True 
-while is_running:
+running = True 
+while running:
     events = pygame.event.get()
 
     for event in events:
         if event.type == pygame.QUIT:
-            is_running = False
+            running = False
 {% endhighlight %}
 
         There are some benefits to this, the application only closes <i>after</i> it completes the last 
@@ -338,12 +338,12 @@ while is_running:
         This can solve problems like IDLE keeping the window open even after you ended the application.
 
 {% highlight python %}
-while is_running:
+while running:
     events = pygame.event.get()
 
     for event in events:
         if event.type == pygame.QUIT:
-            is_running = False
+            running = False
 
 pygame.quit()
 {% endhighlight %}
@@ -384,13 +384,13 @@ pygame.init()
 WIN_SIZE = (420, 250)
 screen = pygame.display.set_mode(WIN_SIZE, flags=pygame.SCALED)
 
-is_running = True
-while is_running:
+running = True
+while running:
     events = pygame.event.get()
 
     for event in events:
         if event.type == pygame.QUIT:
-            is_running = False
+            running = False
 
     screen.fill("black")
     pygame.display.flip()
