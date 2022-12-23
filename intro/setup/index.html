@@ -207,7 +207,7 @@ screen = pygame.display.set_mode(WIN_SIZE)
 
     <p>
         When you run this code, the window opens up and then closes immediately. Why is that? 
-        This is because there is nothing telling the OS that the window is alive, nor is the 
+        This is because there is nothing telling pygame that the window is alive, nor is the 
         python program continuing to run. After creating that special surface we were talking about, 
         it just closes. To keep the window alive and running, we need to keep the Python program running. 
         To do this, let us create a while loop. From this point onward, the code presented is assumed to be added at the end 
@@ -229,8 +229,8 @@ while True:
 
     <h3>The window is really laggy.</h3>
     <p>
-        While the python program is still running, the operating system has no way of understanding 
-        that the program is still running as intended, we need some kind of event handling to fix this problem.
+        While the python program is still running, pygame has no way of understanding 
+        that the window is still running, it needs some kind of system that checks for these events.
         For this, we can grab all the window events that are going on
 
 {% highlight python %}
