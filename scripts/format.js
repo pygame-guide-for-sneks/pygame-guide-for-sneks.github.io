@@ -8,9 +8,9 @@ function toc() {
     let headers = document.getElementsByClassName('js');
     let html = '';
 
-    for (let i = 0; i < headers.length; i++) {
-        title = headers[i].parentNode.textContent;
-        cls = headers[i].getAttribute("id");
+    for (let h of headers) {
+        title = h.parentNode.textContent;
+        cls = h.getAttribute("id");
         html += '<li><a href="#' + cls + '">' + title + '</a></li>';
     }
 
@@ -37,9 +37,7 @@ for (let linked_button of linked_buttons) {
             break;
     }
 
-    linked_button.onclick = function () {
-        // HAS to be linked_buttons[i] instead of linked_button; I *think* it's because
-        // it just takes the last linked button's url cuz of the loop
+    linked_button.onclick = () => {
         location.href = linked_button.dataset.url;
     }
 }
