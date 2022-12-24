@@ -78,9 +78,11 @@ render(text, antialias, color, background=None) -> Surface{% endhighlight %}
         <ul>
             <li><code>text</code>, which is a string with the text you want to render;</li>
             <li><code>antialias</code>, which is a boolean indicating whether you want your text to have smooth edges;</li>
-            <li><code>color</code>, which is a <a href="/intro/color/">color value</a>;</li>
-            <li><code>background</code>, which is a <a href="/intro/color/">color value</a>.</li>
+            <li><code>color</code>, which is usually a <code>tuple[int, int, int]</code> or a string;</li>
+            <li><code>background</code>, which is usually a <code>tuple[int, int, int]</code> or a string.</li>
         </ul>
+        Note: for all supported color formats, see <a href="intro/colors/">Colors in pygame</a>.
+        <br><br>
 
         The method returns a <code>pygame.Surface</code>. Here's some docs from the <a href="https://pygame.org/docs">pygame documentation</a>: "This creates a new Surface with the specified text rendered on it. pygame provides no way to directly draw text on an existing Surface: instead you must use Font.render() to create an image (Surface) of the text, then blit this image onto another Surface. The text can only be a single line: newline characters are not rendered."
         
