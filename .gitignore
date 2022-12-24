@@ -1,9 +1,10 @@
 # Jekyll
-Gemfile
-Gemfile.lock
 _site/
 .sass-cache
 .jekyll-cache
+
+# NPM
+node_modules
 
 # Other miscellaneous items
 .vscode
