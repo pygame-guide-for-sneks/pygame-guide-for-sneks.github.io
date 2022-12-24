@@ -1,5 +1,6 @@
 on: pull_request_review
 name: Label approved pull requests
+permissions: read-all|write-all
 jobs:
   labelWhenApproved:
     name: Label when approved
