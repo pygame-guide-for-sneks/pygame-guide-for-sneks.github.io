@@ -44,8 +44,31 @@ for (let linked_button of linked_buttons) {
 
 // code blocks with line numbers
 // This edits CSS so if your CSS isn't working this is probably overriding
+// This also messes with the final html to right-align the line numbers
 for (let elem of linenos) {
-    elem.style = "width: 16px;";
+    let nums = [];
+    let new_content = "";
+    for (n of elem.textContent.split("\n")) {
+        if (n != "") {
+            nums.push(n);
+        }
+    }
+    let longest_num = nums[nums.length-2].length;
+
+    for (n of nums) {
+        let padding = "";
+        for (let i=0; i<longest_num-n.length; i++) {
+            padding += " ";
+        }
+        if (n != nums[-1]) {
+            new_content += padding + n + "\n";
+        } else {
+            new_content += padding + n;
+        }
+    }
+    elem.textContent = new_content;
+
+    elem.style = "width: " + longest_num * 8 + "px;";
     let p = elem.parentElement;
-    p.style = "width: 16px;";
+    p.style = "width: " + longest_num * 8 + "px;";
 }
