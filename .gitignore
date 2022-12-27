@@ -1,9 +1,15 @@
 # Jekyll
-Gemfile
 Gemfile.lock
 _site/
 .sass-cache
 .jekyll-cache
+
+# Cypress
+cypress/videos
+cypress/screenshots
+
+# Node
+node_modules
 
 # Other miscellaneous items
 .vscode
