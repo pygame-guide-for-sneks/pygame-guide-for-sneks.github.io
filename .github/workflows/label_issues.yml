@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read
       issues: write
       pull-requests: write
 
@@ -16,18 +17,18 @@ jobs:
       env:
         APPROVALS: "0"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%20Needs%20first%20approval"
+        ADD_LABEL: "PR: Needs first approval"
     - name: Label when one review
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "1"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%20Needs%20second%20approval"
-        REMOVE_LABEL: "PR%3A%20Needs%20first%20approval"
+        ADD_LABEL: "PR: Needs second approval"
+        REMOVE_LABEL: "PR: Needs first approval"
     - name: Label when two reviews
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "2"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%20Awaiting%20merge"
-        REMOVE_LABEL: "PR%3A%20Needs%20second%20approval"
+        ADD_LABEL: "PR: Awaiting merge"
+        REMOVE_LABEL: "PR: Needs second approval"
