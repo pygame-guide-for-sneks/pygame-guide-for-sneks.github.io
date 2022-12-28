@@ -1,9 +1,10 @@
 ## Guide to Getting Started With Contributing: 
 
-Due to the custom theme provided by GitHub Pages, you're going to need to install [Ruby](https://rubyinstaller.org/downloads/) and then [Jekyll](https://jekyllrb.com/docs/installation/) to get started.
+Due to the custom theme provided by GitHub Pages, you're going to need to install [Ruby](https://rubyinstaller.org/downloads/) and then [Jekyll](https://jekyllrb.com/docs/installation/) to get started. You'll also need [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for TailwindCSS and PostCSS.
+
 - Take note of the version of Ruby that you've installed. 
 - If you already have Ruby installed and need to know what version, use `ruby -v` in your terminal of choice.
-- When installing Jekyll, it is advised that you use the Guide based on your OS. 
+- When installing Jekyll, it is advised that you use the guide based on your OS. 
     - i.e. Windows users do not need to install `Make` or `GCC` separately if using the Ruby+DevKit with MSYS2 & MINGW dev tool chain.
 
 After you have Jekyll installed, you need to create your fork of the repo and a clone of your fork. 
@@ -13,13 +14,8 @@ Take note of what it's called.
 Now you should open a terminal and `cd` to the directory in which you want the local copy of your fork to be. 
 Once you've done this, you should run `git clone https://github.com/{your-username}/{whatever-the-fork-is-called}` and then `cd` into that directory.
 
-Now you should run `bundle init` and a Gemfile should be generated. 
-Replace the contents of the Gemfile with this: (Note that `#` is used to denote comments in Gemfiles)
-```
-source "https://rubygems.org"
-gem "github-pages"
-gem "webrick" # only use this if you're using a version of Ruby >= 3.0.0
-```
+Next, you should run `npm install` to install the required dependencies for TailwindCSS 
+and PostCSS. Without this, you wouldn't be able to use Tailwind's awesome functionalities.
 
 Now you should run `bundle install` to install the appropriate gems then `bundle exec jekyll serve` to host the files locally on `localhost:4000`. 
 Adding the `--livereload` flag at the end of the command will allow the server to automatically update whenever you have made a change to your copy of the files.
