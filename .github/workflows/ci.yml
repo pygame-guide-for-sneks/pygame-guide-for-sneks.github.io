@@ -10,8 +10,17 @@ jobs:
       - uses: actions/checkout@v3
       - name: install dependencies
         run: | 
-          sudo apt update
-          sudo apt remove ruby -y
+          sudo apt-get update
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb -y
+          sudo apt remove firefox
+          sudo add-apt-repository ppa:mozillateam/ppa -y
+          echo '
+              Package: *
+              Pin: release o=LP-PPA-mozillateam
+              Pin-Priority: 1001
+              ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+          sudo apt install firefox -y
           sudo apt-get install ruby-dev build-essential zlib1g-dev -y
           sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
       - name: install ruby and node deps
@@ -23,5 +32,9 @@ jobs:
           sudo gem install jekyll bundler
           sudo bundle install
           npm install
-      - name: run tests   
+      - name: run Electron tests
         run: bundle exec jekyll serve & npx cypress run
+      - name: run Firefox tests
+        run: bundle exec jekyll serve & npx cypress run --browser firefox
+      - name: run Chrome tests
+        run: bundle exec jekyll serve & npx cypress run --browser chrome
