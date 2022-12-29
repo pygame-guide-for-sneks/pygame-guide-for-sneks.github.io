@@ -13,14 +13,6 @@ jobs:
           sudo apt-get update
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install ./google-chrome-stable_current_amd64.deb -y
-          sudo apt remove firefox
-          sudo add-apt-repository ppa:mozillateam/ppa -y
-          echo '
-              Package: *
-              Pin: release o=LP-PPA-mozillateam
-              Pin-Priority: 1001
-              ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-          sudo apt install firefox -y
           sudo apt-get install ruby-dev build-essential zlib1g-dev -y
           sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
       - name: install ruby and node deps
@@ -32,9 +24,15 @@ jobs:
           sudo gem install jekyll bundler
           sudo bundle install
           npm install
+      # default browser setting is Electron
       - name: run Electron tests
         run: bundle exec jekyll serve & npx cypress run
-      - name: run Firefox tests
-        run: bundle exec jekyll serve & npx cypress run --browser firefox
+      # firefox does not currently work
+      # - name: run Firefox tests
+      #   run: bundle exec jekyll serve & npx cypress run --browser firefox
       - name: run Chrome tests
         run: bundle exec jekyll serve & npx cypress run --browser chrome
+
+# gems should not be installed with, and bundle should not be run with `sudo`.
+# We are doing it because this is only a temporary docker container for CI runs
+# so it doesn't particularly matter

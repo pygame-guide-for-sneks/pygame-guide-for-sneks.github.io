@@ -54,8 +54,5 @@ describe ('Home Page Testing', () => {
     .then(() => {
       expect(failed_pages).to.deep.equal([])
     })
-    .then(() => {
-      cy.log(failed_pages)
-    })
   });
 });
