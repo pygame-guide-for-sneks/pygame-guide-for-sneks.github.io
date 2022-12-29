@@ -7,7 +7,7 @@ _site/
 cypress/videos
 cypress/screenshots
 
-# Node
+# NPM
 node_modules
 
 # Other miscellaneous items

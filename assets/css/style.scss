@@ -1,6 +1,9 @@
 ---
 ---
 
+// No base because of the theme
+@tailwind components;
+@tailwind utilities;
 
 // It works, but VSCode doesn't like it :(
 @import "jekyll-theme-midnight";
@@ -8,5 +11,5 @@
 @import "{{ site.theme }}";
 
 section {
-    margin-top: 10px
+    margin-top: 10px;
 }

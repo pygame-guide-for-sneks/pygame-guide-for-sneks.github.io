@@ -1,2 +1,8 @@
 theme: jekyll-theme-midnight
 title: Pygame Guide for Sneks
+
+plugins:
+  - jekyll-postcss-v2
+
+postcss:
+  cache: false
