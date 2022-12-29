@@ -12,6 +12,7 @@ Credit for the logo image goes to @Sjmarf#1894 on Discord
 
 404 Page Attribution
 <hr>
+
 Title: "pg_sad"
 
 Creator: [Mega-JC](https://github.com/Mega-JC)
