@@ -5,6 +5,7 @@ jobs:
   labelWhenApproved:
     name: Label when approved
     runs-on: ubuntu-latest
+    secrets: inherit
 
     permissions:
       contents: read
