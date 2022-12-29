@@ -10,8 +10,9 @@ If you want to help contribute, there's a contribution guide [here](./documentat
 
 Credit for the logo image goes to @Sjmarf#1894 on Discord
 
-404 Page Attribution
 <hr>
+
+<b>404 Page Attribution</b>
 
 Title: "pg_sad"
 
