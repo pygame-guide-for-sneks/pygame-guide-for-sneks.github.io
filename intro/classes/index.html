@@ -2,18 +2,12 @@
 layout: default
 title: Classes in Python and Pygame
 pg:
-links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Types and Objects]]
+links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Types and Objects], [https://www.youtube.com/watch?v=X1PQ7zzltz4, mCoding Video on <code>super()</code>]]
+next_page: [/intro/audio, "Audio in Pygame"]
+prev_page: [/intro/images, "Images in Pygame"]
 ---
-<head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="../../styles/embed.css">
-    <link rel="stylesheet" href="../../styles/code_tags.css">
-</head>
 <body>
-    <h1>{{ page.title }}</h1>
-    <hr>
-    <h2>Table of Contents</h1>
+    <h2>Table of Contents</h2>
     <p>
         <ol id="toc">
             <!--
@@ -23,68 +17,61 @@ links: [[http://pythonic.zoomquiet.top/data/20070308094655/index.html, Python Ty
     </p>
 
     <div>
-        <h2><a id="class-intro" class="js"></a>What Are Classes and Why Do We
-            Care?</h1>
+        <h2><a id="class-intro" class="js"></a>What Are Classes and Why Do We Care?</h2>
         <p>
-            <!-- TODO: reword part about attributes and methods-->
-            Python is an object oriented programming language, which means that
-            everything in Python is an object. But that doesn't tell us what objects are.
-            The word "object" here just means a collection of data and/or
-            functionality. More
-            specifically, objects contain two types of structures: attributes
-            and methods.
-            Generally speaking, attributes are variables and methods are
-            functions. Now, why do they
-            matter and how do they relate to classes? We'll get to that.
+            Python is an object oriented programming language, which means that everything in Python is an object. But that doesn't tell us what objects are.
+            The word "object" here just means a collection of data and/or functionality. More specifically, any piece of data attached to a class is 
+            called an "attribute". Attributes can be either variables or functions, but attributes that are functions have another common name: methods. Variable attributes
+            can be called "instance variables" to distinguish them from methods, but when talking about classes with other Python programmers, it is generally
+            accepted that "attribute" usually means a variable and "method" means a function. Now, why do they matter and how do they relate to classes? We'll get to that.
         </p>
 
         <p>
             You should be familiar with the built-in datatypes such as:
             <ul>
-                <li>int</li>
-                <li>float</li>
-                <li>str</li>
-                <li>list</li>
-                <li>tuple</li>
-                <li>dict</li>
-                <li>...</li>
+                <li><code>int</code></li>
+                <li><code>float</code></li>
+                <li><code>str</code></li>
+                <li><code>list</code></li>
+                <li><code>tuple</code></li>
+                <li><code>dict</code></li>
             </ul>
-            Each of these built-in datatypes is actually an object! If you don't
-            believe me, here is
-            proof:
-            <iframe width="800px" height="200px" class="python-embed"
-                src="https://www.godbolt.org/e?readOnly=true&hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:54,endLineNumber:8,positionColumn:54,positionLineNumber:8,selectionStartColumn:54,selectionStartLineNumber:8,startColumn:54,startLineNumber:8),source:'types+%3D+%5Bint,+float,+str,+list,+tuple,+dict%5D%0A%0Afor+dtype+in+types:%0A++++print(f!'type(%7Bdtype.__name__%7D)+%3D+%7Btype(dtype)%7D!')%0A++++if+isinstance(dtype,+object):%0A++++++++print(f!'%7Bdtype.__name__%7D+is+an+object%5Cn!')%0A++++else:%0A++++++++print(f!'%7Bdtype.__name__%7D+is+not+an+object%5Cn!')'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'1',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),header:(),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
+            Each of these built-in datatypes is actually a class! When talking about objects and classes, there are 4 key terms
+            that should be kept in mind. Those terms are "class", "type", "instance", and "object". So let's discuss what these terms mean.
         </p>
-
         <p>
-            Wait, what? What the heck does <code>&ltclass 'type'></code> mean? 
-            <br>
-            <b>Weeeeelllllll</b>...
-            <br>
-            that's a very long story <i>far</i> out of the scope of this
-            discussion. There will be some references at the bottom of the page
-            that you can reference
-            if you dare to dig into it. The important part of the answer is that
-            classes are both objects and types while instances of classes are
-            only objects.
-            So from now on whenever the terms "object", "class", and "type" are
-            being used when talking about Python, they're <i>probably</i>
-            interchangeable.
-            The ultimate answer to "What is a class" is that it is a container
-            for some data and
-            functionality.
+            A "class" is ultimately just a container for some data and functionality. The key part to recognize about a "class"
+            is that the "class" term usually specifically refers to the abstract container itself. So <code>int</code> is a class
+            but <code>1</code> is not. <code>1</code> is what's called an <i>instance</i> of the <code>int</code> class. Note, however, 
+            <code>int</code> behaves a bit differently than most classes you'll define for 
+            your own use. But, you can explicitly instantiate <code>int</code> in a similar fashion to the way you'll be instantiating 
+            your own classes. Just append <code>()</code> to the end of the class name to create an instance (so like 
+            <code>int()</code> would return an <code>int</code> instance. You can also put any number into the parentheses and it 
+            will create an instance based on that number, otherwise it defaults to 0).
+        </p>
+        <p>
+            A "type" is pretty much another word for "class" in Python. The <code>type</code> function returns the class that the 
+            argument is an instance of (if you print <code>type(1)</code> in Python, you'll get <code>int</code>). But wait, why did
+            I say "pretty much another word for 'class'" and not "another word for class?" Well, that part is complicated and well
+            beyond the scope of this guide. There is a link at the bottom of the page that goes into depth about the relationship
+            between the two concepts in Python. I only mention that there is a difference for the pedants that might take issue with
+            my simplification. So, you can ignore all but the first couple of sentences in this paragraph in 99.99999&percnt; of cases.
+        </p>
+        <p>
+            An "object" is an instance of a class. <code>1</code> is an object. Here's how to think about class vs instance: A class is 
+            a template for an instance. The class tells you how to construct whatever data structure you're trying to construct, and an
+            instance is what you get when you follow the template. Again for the pedants: technically everything in python
+            is an "object" too, but I'm still simplifying here.
         </p>
     </div>
 
     <div>
-        <h2><a id="simple-class" class="js"></a>Creating a Simple Class</h1>
+        <h2><a id="simple-class" class="js"></a>Creating a Simple Class</h2>
         <p>
-            Now's the time that we can start actually making classes. So, let's
-            start off by
-            creating a very simple one. Here's a class definition that we will
+            Now's the time that we can start actually making classes. So, let's start off by creating a very simple one. Here's a class definition that we will
             parse:
 
-{% highlight python %}
+{% highlight python linenos %}
 class Foo:
     def __init__(self):
         print('bar')
@@ -100,27 +87,26 @@ class Foo:
             Now for the next line, <code>def __init__(self):</code>. This is called the class <i>constructor</i>. Almost every class you'll ever write
             has this part. I'm leaving out a few details here since they are way out of scope of this discussion. This particular function is called the constructor
             because it, in essence, "constructs" the class. Generally, you don't want to put anything computationally expensive in the constructor nor do you want to
-            call a computationally expensive function from the constructor. It's job is to just set up the instance in such a way that you can use it. The 
-            <code>self</code> parameter is always needed and will get passed in automatically when you instantiate the class (note that you do not need 
-            to call it <code>self</code>, but that's the common convention and you'll confuse a lot of people if you don't). To create an instance of the
-            above class, you essentially "call" it like you do a function: <code>foo_instance = Foo()</code>. Generally, classes are abstract things that
-            have little or no functionality on their own. You need an instance of the class. There are exceptions and we'll touch on those, so let's continue.
+            call a computationally expensive function from the constructor. Its job is to just set up the instance in such a way that you can use it. The
+            <code>self</code> parameter is always needed and will get passed in automatically when you instantiate the class. To create an instance of the
+            above class, you essentially "call" it like you do a function (i.e. add the parentheses): <code>foo_instance = Foo()</code>. Most classes don't provide
+            much functionality just by existing. You need an instance of the class. There are exceptions and we'll touch on 
+            those, so let's continue.
         </p>
 
         <p>
-            Now let's start building a class that we will continue to build on
-            throughout this
-            tutorial:
+            Now let's start building a class that we will continue to build on throughout this tutorial:
 
-{% highlight python %}
+{% highlight python linenos %}
 class Actor:
     def __init__(self):
-        pass {% endhighlight %}
+        pass
+{% endhighlight %}
 
-            But what if we want to have our player have some actual data? How do we do that? The answer is attributes. We can define class attributes that persist even when the
-            constructor has finished and these attributes can be accessed from other places in your code. So, let's define a few attributes:
+            But what if we want to have our player have some actual data? How do we do that? The answer is attributes. We can define class attributes that persist
+            even when the constructor has finished and these attributes can be accessed from other places in your code. So, let's define a few attributes:
 
-{% highlight python %}
+{% highlight python linenos %}
 class Actor:
     def __init__(self):
         self.health = 100
@@ -129,37 +115,31 @@ class Actor:
         self.inventory = ['sword', 'shield']
 {% endhighlight %}
 
-            Alright, let's parse what we see here. When we create a <code>Actor</code> instance, the constructor is going to assign the values
-            health, attack, defense, and some inventory to something called <code>self</code>. <code>self</code>
-            represents the <i>class instance</i> (or in other words, it's <i>referring to itself</i>), so you're really just assigning those bits of data
-            to the instance of the class. This serves a quite useful purpose. You see, if I didn't prefix all of those with <code>self</code>,
-            then when the constructor finished running then the values would go out of the local scope they were defined in and get garbage collected away
-            and would not exist anymore. That's not what we want at all. So, we assign them to be instance attributes as above and those values stay in scope
-            for as long as the instance itself stays in scope. Another benefit is that we can change them for individual instances and the changes only apply
-            to that single instance and no others. Here's an example:
-            
-            <iframe width="800px" height="200px" class="python-embed"
-                src="https://godbolt.org/e#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,source:'class+Player:%0A++++def+__init__(self):%0A++++++++self.health+%3D+100%0A++++++++self.attack+%3D+5%0A++++++++self.defense+%3D+0%0A++++++++self.inventory+%3D+%5B!'sword!',+!'shield!'%5D%0A++++++++potion_effects+%3D+%5B!'strength!',+!'swiftness!'%5D%0A%0Aplayer+%3D+Player()%0Aprint(f%22%7Bplayer.health+%3D+%7D%22)%0Aprint(f%22%7Bplayer.attack+%3D+%7D%22)%0Aprint(f%22%7Bplayer.defense+%3D+%7D%22)%0Aprint(f%22%7Bplayer.inventory+%3D+%7D%22)%0Aprint(f%22%7Bplayer.potion_effects+%3D+%7D%22)'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
-            We can see that all of the attributes we prefixed with <code>self</code>
-            printed just fine, but as soon as we tried to print the
-            value that wasn't prefixed, we got an <code>AttributeError</code>
-            which
-            means that the attribute we tried to access does not exist.
+            Alright, let's parse what we see here. When we create a <code>Actor</code> instance, the constructor is going to assign the values health, attack, defense, 
+            and some inventory to something called <code>self</code>. The <code>self</code> parameter represents the <i>class instance</i> (or in other words, it's 
+            <i>referring to itself</i>), so you're really just assigning those bits of data to the instance of the class. This serves a quite useful purpose. 
+            You see, if I didn't prefix all of those with <code>self</code>, then when the constructor finished running the values would get garbage collected 
+            away and would not exist anymore. That's not what we want at all. So, we assign them to be instance attributes as above and those values stay in 
+            scope for as long as the instance itself exists. Another benefit is that we can change them for individual instances and the changes 
+            only apply to that single instance and no others.
+            Here's an example:
+
+            <iframe width='800px' height='200px' class="python-embed" src="https://godbolt.org/e#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:1,endLineNumber:9,positionColumn:1,positionLineNumber:9,selectionStartColumn:1,selectionStartLineNumber:9,startColumn:1,startLineNumber:9),source:'class+NPC:%0A++++def+__init__(self):%0A++++++++self.health+%3D+100%0A++++++++self.attack+%3D+5%0A++++++++self.defense+%3D+0%0A++++++++self.inventory+%3D+%5B!'sword!',+!'shield!'%5D%0A++++++++potion_effects+%3D+%5B!'strength!',+!'swiftness!'%5D%0A%0A%0Anpc1+%3D+NPC()%0Anpc2+%3D+NPC()%0A%0Anpc1.defense+%3D+5%0Anpc2.attack+%3D+10%0A%0Aprint(f%22%7Bnpc1.health+%3D+%7D%22)%0Aprint(f%22%7Bnpc1.attack+%3D+%7D%22)%0Aprint(f%22%7Bnpc1.defense+%3D+%7D%22)%0Aprint(f%22%7Bnpc1.inventory+%3D+%7D%22)%0A%0Aprint(f%22%7Bnpc2.health+%3D+%7D%22)%0Aprint(f%22%7Bnpc2.attack+%3D+%7D%22)%0Aprint(f%22%7Bnpc2.defense+%3D+%7D%22)%0Aprint(f%22%7Bnpc2.inventory+%3D+%7D%22)%0A%0Aprint(f%22%7Bnpc1.potion_effects+%3D+%7D%22)'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'1',compiler:python310,compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
+
+            We can see that all of the attributes we prefixed with <code>self</code> printed just fine, but as soon as we tried to print the value that wasn't prefixed,
+            we got an <code>AttributeError</code> which means that the attribute we tried to access does not exist.
         </p>
 
         <p>
-            A general rule of thumb for whether something should be an attribute
-            or not is this:
+            A general rule of thumb for whether something should be an attribute or not is this:
             <blockquote>
-                Make it an attribute if you need it later and ONLY if you need
-                it later
+                Make it an attribute if you need it later and ONLY if you need it later
             </blockquote>
         </p>
 
         <p>
-            Attributes also have a few naming conventions (note that these are
-            common conventions
-            and are not enforced at all in Python):
+            Python variable and method names also have a few naming conventions (note that these are common conventions and are
+            not enforced at all in Python). To read the full convention, see <a href="https://peps.python.org/pep-0008/#method-names-and-instance-variables" class="new-tab">PEP 8</a>:
             <ul>
                 <li>No leading underscore</li>
                 <li>Single leading underscore</li>
@@ -170,8 +150,8 @@ class Actor:
 
         <h3>No leading underscores</h3>
         <p>
-            These are the simplest to understand. They're quite simply things like above: <code>self.health = 100</code>. There are no underscores
-            at the beginning of the attribute name. The purpose of these attributes is that they are intended to be directly accessed and modified by the user.
+            These are the simplest to understand. They're quite simply things like above: <code>self.health = 100</code>. There are no underscores at the beginning of
+            the attribute name. The purpose of these attributes is that they are intended to be directly accessed and modified by the user.
         </p>
 
         <h3>Single leading underscores</h3>
@@ -185,19 +165,173 @@ class Actor:
         <h3>Double leading underscores</h3>
         <p>
             These are the trickiest to understand. One of these attributes would look like <br>
-            <code>self.__health = 100</code>. These attributes are
-            intended to be private; users are not supposed to access these nor are any subclasses. This doesn't make them inaccessible. They're actually harder to access.
-            This is due to <b>name mangling</b>. When you define one of these attributes on a class, the name of the attribute is changed outside of the class itself.
-            If my class name is <code>Actor</code> with the attribute I listed above, I'd have to access the attribute like <code>instance._Actor__health</code>,
-            but within the <code>Actor</code> class, I could just call <code>self.__health</code>. We'll talk about the subclass implications after we talk about
-            subclasses in the Inheritance section.
-            <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@OddBook/pygame-repl?lite=true"></iframe>
+            <code>self.__health = 100</code>. These attributes are intended to be private; users are not supposed to access these nor are any subclasses.
+            This doesn't make them inaccessible. They're actually harder to access. This is due to <b>name mangling</b>. When you define one of these
+            attributes on a class, the name of the attribute is changed outside of the class itself. If my class name is <code>Actor</code> with the
+            attribute I listed above, I'd have to access the attribute like <code>instance._Actor__health</code>, but within the <code>Actor</code> class,
+            I could just call <code>self.__health</code>. We'll talk about the subclass implications after we talk about subclasses in the Inheritance section.
+        </p>
+
+        <h3>Trailing underscore</h3>
+        <p>
+            A common thing that beginners do is to name their attributes something like <code>type</code> or <code>id</code>. While this usually won't get
+            you into trouble and it will usually work fine, this is still frowned upon because <code>type</code> and <code>id</code> have specific meanings in Python.
+            The commonly accepted way to use names like these is to append an underscore to the end of the variable name, so instead of <code>self.id</code>,
+            you should do <code>self.id_</code>. There is really no other purpose to a single trailing underscore in an attribute name, it's just a common way to
+            prevent yourself from accidentally shadowing something else.
         </p>
     </div>
 
     <div>
         <h2><a id="inheritance" class="js"></a>Inheritance</h2>
-        <p>Enter some text and code here</p>
+        <p>
+            Sometimes you want to create multiple classes that have the same basic functionality, but they each behave a bit differently. 
+            An example relevant to pygame might be that you have NPCs, Enemies, and the Player. Each one is gonna have pretty much the same basic logic:
+            <ol>
+                <li>making the image</li>
+                <li>scaling it to the appropriate size (actually, you should ideally make your images the correct size in the first place, but scale if needed)</li>
+                <li>making sure that you have a way to position the character once it's time to draw it on screen</li>
+            </ol>
+            But maybe each one has different movement logic and possibly the same or different attack logic. It's always a pain to write the
+            same piece of code over and over again. Also, if you change your mind, you'll have to remember every place you need to change 
+            your code. This is a great example of how  something called subclassing can be useful.
+        </p>
+
+        <p>
+            Let's say I want to create NPC and Enemy classes. I might start off with defining an Actor class that doesn't have much functionality, but will serve
+            as the base of my NPC and Enemy classes. That Actor class might be defined in this way:
+
+{% highlight python linenos %}
+class Actor:
+    def __init__(self, position, image, size):
+        self.image = image
+        self.size = size
+        self.pos = position
+{% endhighlight %}
+
+            Note that I've put a few more arguments into the constructor: <code>position</code>, <code>image</code>, and 
+            <code>size</code>. These are bits of information that I would expect pretty much any character in the game to need.
+            Now, I want to create an NPC class. I <i>could</i> rewrite all of that code in the constructor of
+            my NPC class, but that's a lot of overhead as mentioned before. Instead, let's <b>subclass</b> <code>Actor</code>:
+
+{% highlight python linenos %}
+class NPC(Actor):
+    def __init__(self, position, image, size, dialogue):
+            self.dialogue = dialogue
+{% endhighlight %}
+            
+            And that's all there is to it right? <b>Wrong.</b>
+        </p>
+        
+        <p>
+            Python has no idea what our intentions are. It could assume that we want the constructor of <code>Actor</code> to be
+            called immediately, but that's a lot of overhead and might not actually be what we want. So, we have to explicitly
+            call the constructor of <code>Actor</code> (side note: Actor here is also known as the superclass of NPC, and that'll
+            be important in a second). There are a couple of ways to do that: explicitly calling the constructor of <code>Actor</code>,
+            or by calling the constructor of the superclass.
+        </p>
+
+        <p>
+            Calling Actor's constructor:
+
+{% highlight python linenos %}
+class NPC(Actor):
+    def __init__(self, position, image, size, dialogue):
+        Actor.__init__(self, position, image, size)
+        self.dialogue = dialogue
+{% endhighlight %}
+
+            Calling the superclass constructor:
+
+{% highlight python linenos %}
+class NPC(Actor):
+    def __init__(self, position, image, size, dialogue):
+        super().__init__(position, image, size)
+        self.dialogue = dialogue
+{% endhighlight %} 
+        </p>
+        
+        <p>
+            These look practically identical (and in fact, they practically do the exact same thing in simple cases), but there are a
+            few reasons to choose one over the other. Generally, <code>super().__init__</code> is preferred because it's easy to swap
+            out or rename the superclass if you need to, as well as not needing to remember the <code>self</code> parameter. And for
+            longer class names, it's also shorter. But, the situation where you would possibly want to use <code>Actor.__init__</code>
+            would be in the case of more complicated inheritance structures (long chains of inheritance or multiple inheritance,
+            both of which are well outside the scope of this article and game design in general, but a link is at the bottom of the
+            page for an excellent video on the topic from the 
+            <a href="https://www.youtube.com/c/mCodingWithJamesMurphy" class="new-tab">mCoding</a> YouTube channel).
+        </p>
+
+        <p>
+            The power of class inheritance is that attributes are <i>inherited</i> from the superclass to the subclass. So, an instance of
+            <code>NPC</code> as given above has the same attributes as <code>Actor</code> (note that this would not be the case if we had
+            not called the constructor of the superclass). Here's an example to play around with:
+            
+            <iframe width='800px' height='200px' class="python-embed" src="https://godbolt.org/e#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:python,selection:(endColumn:13,endLineNumber:15,positionColumn:13,positionLineNumber:15,selectionStartColumn:13,selectionStartLineNumber:15,startColumn:13,startLineNumber:15),source:'class+Actor:%0A++++def+__init__(self,+position,+image,+size):%0A++++++++self.image+%3D+image%0A++++++++self.size+%3D+size%0A++++++++self.pos+%3D+position%0A++++%0A++++def+talk(self,+text):%0A++++++++print(text)%0A%0A%0Aclass+NPC(Actor):%0A++++def+__init__(self,+position,+image,+size,+dialogue):%0A++++++++++++super().__init__(position,+image,+size)%0A++++++++++++self.dialogue+%3D+dialogue%0A++++++++++++%0A++++%0Anpc+%3D+NPC((100,+200),+%22assets/npc.png%22,+(20,+20),+%22Hello+World!!%22)%0Aprint(npc.pos)%0Aprint(npc.dialogue)%0Anpc.talk(%22Hello%22)'),l:'5',n:'0',o:'Python+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'0',compiler:python310,compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:python,libs:!(),options:'',source:1,stdinPanelShown:'1',tree:'1',wrap:'1'),l:'5',n:'0',o:'Executor+Python+3.10+(Python,+Editor+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4"></iframe>
+            But remember from the beginning what I said about attributes and methods? I said that methods <b>are</b> attributes, so 
+            anything that applies to variable attributes also applies to methods! This means that methods are inherited too. Try it
+            in the embed above. Define a method of the <code>Actor</code> class and try to call it from the instance of <code>NPC</code>.
+            One example of that might look like:
+
+{% highlight python linenos %}
+class Actor:
+    def __init__(self, position, image, size):
+        self.image = image
+        self.size = size
+        self.pos = position
+    
+    def talk(self, text):
+        print(text)
+
+
+class NPC(Actor):
+    def __init__(self, position, image, size, dialogue):
+        super().__init__(position, image, size)
+        self.dialogue = dialogue
+
+
+npc = NPC("Tom", "assets/tom.png")
+print(npc.name)
+print(npc.image)
+npc.talk("Hello World!")
+{% endhighlight %}
+        </p>
+            
+        <p>
+            But there's more that we can do! <code>super().__init__()</code> in the constructor of a subclass hints that we can access
+            the methods of the superclass in the subclass! In fact, this is one of the most powerful aspects of inheritance! Let's say
+            my <code>Actor</code> superclass has a method <code>func</code> and I want to run that method in my <code>NPC</code> subclass
+            but I also want it to do some additional stuff. One option would be to copy/paste the code from <code>Actor.func</code> into 
+            <code>NPC.func</code>. But there's an alternative that is easier to maintain and reduces the amount of duplicate code: call 
+            <code>super().func()</code> in <code>NPC.func</code>, like so:
+
+{% highlight python linenos %}
+class Actor:
+    def __init__(self, position, image, size):
+        self.image = image
+        self.size = size
+        self.pos = position
+    
+    def talk(self, text):
+        print(text)
+
+
+class NPC(Actor):
+    def __init__(self, position, image, size, dialogue):
+        super().__init__(position, image, size)
+        self.dialogue = dialogue
+    
+    def talk(self, player_text, npc_text):
+        print(f"You said {player_text}")
+        super().talk(npc_text)
+
+    
+npc = NPC((100, 200), "assets/npc.png", (20, 20), "Hello World!")
+print(npc.pos)
+print(npc.dialogue)
+npc.talk("Hello", "Hello there")
+{% endhighlight %}
+        </p>
     </div>
 
     <div>
@@ -231,6 +365,7 @@ class Actor:
     </div>
 </body>
 
+<!-- python syntax highlighting template -->
 <!-- {% highlight python %}
             import sussy
             def amogus():
