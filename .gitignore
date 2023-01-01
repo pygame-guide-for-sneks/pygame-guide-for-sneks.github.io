@@ -6,6 +6,11 @@ _site/
 # NPM
 node_modules
 
-# Other miscellaneous items
+# Ruby
+Gemfile.lock
+
+# IDE-specific stuff
 .vscode
+
+# Miscellaneous
 logo_files.zip
