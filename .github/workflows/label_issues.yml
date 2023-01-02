@@ -1,6 +1,9 @@
 on: pull_request_review
 name: Label approved pull requests
 
+env:
+  GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
+
 jobs:
   labelWhenApproved:
     name: Label when approved
