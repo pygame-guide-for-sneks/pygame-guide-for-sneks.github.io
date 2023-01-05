@@ -2,15 +2,16 @@ let new_tabs = document.getElementsByClassName("new-tab");
 let linked_buttons = document.getElementsByClassName("button-link");
 let table_of_contents = document.getElementById('toc');
 let linenos = document.getElementsByClassName('lineno');
+let headers = document.getElementsByClassName('js');
 
 // Table of contents
 function toc() {
-    let headers = document.getElementsByClassName('js');
     let html = '';
 
     for (let h of headers) {
-        title = h.parentNode.textContent;
+        title = h.textContent;
         cls = h.getAttribute("id");
+        h.href = `#${cls}`;
         html += '<li><a href="#' + cls + '">' + title + '</a></li>';
     }
 

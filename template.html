@@ -3,8 +3,11 @@
 layout: default <!-- Keep this default, selects the layout of the html file -->
 title: Some Title <!-- Change to whatever you want the title to be -->
 pg: https://www.pygame.org/docs <!-- Whatever pygame doc link you want; leave empty for default homepage -->
-links: [[https://www.google.com, Google], [https://www.weather.com, Weather]] <!-- leave this blank if you don't want any extra  -->
-
+links: <!-- leave this blank if you don't want any extra  -->
+    - url: https://www.google.com
+      name: Google
+    - url: https://www.weather.com
+      name: Weather
 prev_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a "Previous page" button -->
 next_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a "Next page" button -->
 ---
@@ -21,14 +24,13 @@ next_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a
     </p>
 
     <!--id and class make it show up properly in TOC. Customize the id to be descriptive.
-    Keep the class as "js". The text is not inside the anchor because that would cause the
-    whole header to be an empty hyperlink
+    Keep the class as "js".
     -->
-    <h2><a id="class-intro" class="js"></a>Some Section</h2>
+    <h2><a id="class-intro" class="js">Some Section</a></h2>
     <p></p>
 
     <!--id and class make it show up properly in TOC-->
-    <h2><a id="simple-class" class="js"></a>Creating a Simple Class</h2>
+    <h2><a id="simple-class" class="js">Creating a Simple Class</a></h2>
     <p>Enter some text and code here</p>
 
     <!--adding more sections with the appropriate format automatically 
@@ -39,11 +41,12 @@ next_page: [https://www.youtube.com/watch?v=dQw4w9WgXcQ, Cool Title] <!-- Adds a
 
 <!--This is a code block template. The endhighlight needs to be on the same line
 otherwise there is an awkard gap at the bottom of the code block
+The indentation matters
 -->
 <!-- 
-    {% highlight python %}
-            import sussy
-            def amogus():
-                print('amogus')
-            amogus() {% endhighlight %}
+{% highlight python linenos %}
+import sussy
+def amogus():
+    print('amogus')
+amogus() {% endhighlight %}
 -->

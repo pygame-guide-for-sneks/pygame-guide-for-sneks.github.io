@@ -31,6 +31,30 @@ code {
     border: 1px solid black;
 }
 
+a.js:link {
+color: white;
+background-color: transparent;
+text-decoration: none;
+}
+
+a.js:visited {
+color: pink;
+background-color: transparent;
+text-decoration: none;
+}
+
+a.js:hover {
+color: yellow;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a.js:active {
+color: #A0A000;
+background-color: transparent;
+text-decoration: underline;
+}
+
 /* 
     Javascript handles some formatting with /scripts/format.js 
     and that will probably override what's in here if there's
