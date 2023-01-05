@@ -3,6 +3,10 @@ _site/
 .sass-cache
 .jekyll-cache
 
+# Cypress
+cypress/videos
+cypress/screenshots
+
 # NPM
 node_modules
 
