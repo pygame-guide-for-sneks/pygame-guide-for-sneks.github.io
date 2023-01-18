@@ -1,15 +1,15 @@
 class HomePage {
   visit() {
-    cy.visit('/');
+    cy.visit("/");
   }
 
   getLinks() {
-    return cy.get('a:not([href*=\'mailto:\'])');
+    return cy.get("a:not([href*=\"mailto:\"])");
   }
 }
 
 function checkIfValid(page, failed_pages) {
-    let url = page.prop('href');
+    let url = page.prop("href");
     if (url == "https://pygame.org/docs") {
         return;
     }

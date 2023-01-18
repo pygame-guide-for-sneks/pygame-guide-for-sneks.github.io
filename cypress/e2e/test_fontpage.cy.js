@@ -8,7 +8,7 @@ describe ("Font Page Testing", () => {
     cy.contains("Pygame Guide for Sneks");
   })
 
-  it('check all links to sites', () => {
+  it("check all links to sites", () => {
     let failed_pages = [];
     page.visit();
     page.getLinks().each(page => {

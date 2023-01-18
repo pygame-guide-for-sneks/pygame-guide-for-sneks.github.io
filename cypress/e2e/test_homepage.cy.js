@@ -7,7 +7,7 @@ describe ("Home Page Testing", () => {
     cy.contains("Pygame Guide for Sneks");
   })
 
-  it('check all links to sites', () => {
+  it("check all links to sites", () => {
     let failed_pages = []
     home.visit();
     home.getLinks().each(page => {
@@ -44,7 +44,7 @@ describe ("Home Page Testing", () => {
   //     cy.visit("/");
   //     cy.contains(page).then(link => {
   //       cy.request({
-  //         url: link.prop('href'),
+  //         url: link.prop("href"),
   //         failOnStatusCode: false
   //       }).then((response) => {
   //         expect(response.status).to.be.lt(300)
