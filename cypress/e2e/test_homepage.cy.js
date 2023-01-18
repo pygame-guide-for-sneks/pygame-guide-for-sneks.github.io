@@ -1,8 +1,23 @@
-describe ('Home Page Testing', () => {
-  it ('Visit the page', () => {
-    cy.visit('/');
+import { HomePage, checkIfValid } from "../pages/homePage";
+
+describe ("Home Page Testing", () => {
+  let home = new HomePage();
+  it("Visit the page", () => {
+    home.visit();
     cy.contains("Pygame Guide for Sneks");
+  })
+
+  it('check all links to sites', () => {
+    let failed_pages = []
+    home.visit();
+    home.getLinks().each(page => {
+      checkIfValid(page, failed_pages);
+    })
+    .then(() => {
+      expect(failed_pages).to.deep.equal([])
+    })
   });
+})
 
   /* 
   Leaving this code here as an alternative test for only specific
@@ -37,22 +52,3 @@ describe ('Home Page Testing', () => {
   //     });
   //   });
   // });
-
-  it('check all links to sites', () => {
-    const failed_pages = []
-    cy.visit('/')
-    cy.get("a:not([href*='mailto:'])").each(page => {
-      cy.request({
-        url:page.prop('href'),
-        failOnStatusCode: false
-      }).then((response) => {
-        if (!response.isOkStatusCode) {
-          failed_pages.push({ url: page.prop('href').split("4000")[1], status: response.status })
-        }
-      })
-    })
-    .then(() => {
-      expect(failed_pages).to.deep.equal([])
-    })
-  });
-});
