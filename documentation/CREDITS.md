@@ -1,5 +1,6 @@
-<b>Logo Image</b>
 <hr>
+<b>Logo Image</b>
+
 Creator: @Sjmarf#1894 on Discord
 
 <hr>
