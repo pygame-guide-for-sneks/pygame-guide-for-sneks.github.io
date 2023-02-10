@@ -1,4 +1,4 @@
-on: pull_request_review
+on: [pull_request, pull_request_review]
 name: Label approved pull requests
 
 env:
@@ -15,17 +15,23 @@ jobs:
       pull-requests: write
 
     steps:
+    - name: Label when no reviews
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: "0"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "PR%3A%A0Needs first approval"
     - name: Label when one review
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "1"
         GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
-        ADD_LABEL: "PR: Needs second approval"
-        REMOVE_LABEL: "PR: Needs first approval"
+        ADD_LABEL: "PR%3A Needs second approval"
+        REMOVE_LABEL: "PR%3A%A0Needs first approval"
     - name: Label when two reviews
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "2"
         GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
-        ADD_LABEL: "PR: Awaiting merge"
-        REMOVE_LABEL: "PR: Needs second approval"
+        ADD_LABEL: "PR%3A Awaiting merge"
+        REMOVE_LABEL: "PR%3A%A0Needs second approval"
