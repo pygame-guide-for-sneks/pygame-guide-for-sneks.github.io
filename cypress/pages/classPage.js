@@ -3,7 +3,7 @@ import { HomePage } from "./homePage";
 class ClassPage extends HomePage {
     visit() {
        super.visit();
-       cy.visit("intro/classes");
+       cy.visit("/guide/intro/classes");
     }
 
 }
