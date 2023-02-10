@@ -2,7 +2,7 @@ on: pull_request_review
 name: Label approved pull requests
 
 env:
-  GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   labelWhenApproved:
@@ -19,13 +19,13 @@ jobs:
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "1"
-        GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ADD_LABEL: "PR: Needs second approval"
         REMOVE_LABEL: "PR: Needs first approval"
     - name: Label when two reviews
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "2"
-        GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ADD_LABEL: "PR: Awaiting merge"
         REMOVE_LABEL: "PR: Needs second approval"
