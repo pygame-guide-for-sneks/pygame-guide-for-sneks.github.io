@@ -20,18 +20,18 @@ jobs:
       env:
         APPROVALS: "0"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%A0Needs%A0first%A0approval"
+        ADD_LABEL: "PR%3A%20Needs%20first%20approval"
     - name: Label when one review
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "1"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%A0Needs%A0second%A0approval"
-        REMOVE_LABEL: "PR%3A%A0Needs%A0first%A0approval"
+        ADD_LABEL: "PR%3A%20Needs%20second%20approval"
+        REMOVE_LABEL: "PR%3A%20Needs%20first%20approval"
     - name: Label when two reviews
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "2"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "PR%3A%A0Awaiting merge"
-        REMOVE_LABEL: "PR%3A%A0Needs%A0second%A0approval"
+        ADD_LABEL: "PR%3A%20Awaiting merge"
+        REMOVE_LABEL: "PR%3A%20Needs%20second%20approval"
