@@ -1,4 +1,4 @@
-on: pull_request_review
+on: [pull_request, pull_request_review]
 name: Label approved pull requests
 
 env:
@@ -15,6 +15,12 @@ jobs:
       pull-requests: write
 
     steps:
+    - name: Label no reviews
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: "0"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "PR: Needs first approval"
     - name: Label when one review
       uses: pullreminders/label-when-approved-action@master
       env:
