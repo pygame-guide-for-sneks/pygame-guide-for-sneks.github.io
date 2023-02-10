@@ -2,7 +2,7 @@ on: [pull_request, pull_request_review]
 name: Label approved pull requests
 
 env:
-  GITHUB_TOKEN: ${{ secrets.LABEL_SECRET }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   labelWhenApproved:
@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - name: Label when no reviews
+    - name: Label no reviews
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "0"
