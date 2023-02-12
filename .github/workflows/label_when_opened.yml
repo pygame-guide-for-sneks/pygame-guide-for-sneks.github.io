@@ -2,6 +2,9 @@ name: Add Label to PR
 
 on: pull_request
 
+env:
+  GITHUB_TOKEN: {{ github.token }}
+
 jobs:
   add_label:
     runs-on: ubuntu-latest
@@ -16,18 +19,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         script: |
-          const octokit = require("@octokit/rest")();
-          octokit.authenticate({
-            type: "token",
-            token: process.env.GITHUB_TOKEN
-          });
-
-          const pull_number = context.payload.pull_request.number;
-          const repository = context.repo;
-
-          octokit.issues.addLabels({
-            owner: repository.owner,
-            repo: repository.repo,
-            issue_number: pull_number,
+          github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
             labels: ["PR: Needs first approval"]
-          });
+          })
