@@ -1,0 +1,35 @@
+name: Add Label to PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add_label:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Add label to pull request
+      uses: actions/github-script@0.10.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        script: |
+          const octokit = require("@octokit/rest")();
+          octokit.authenticate({
+            type: "token",
+            token: process.env.GITHUB_TOKEN
+          });
+
+          const pull_number = context.payload.pull_request.number;
+          const repository = context.repo;
+
+          octokit.issues.addLabels({
+            owner: repository.owner,
+            repo: repository.repo,
+            issue_number: pull_number,
+            labels: ["PR: Needs first approval"]
+          });
