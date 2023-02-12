@@ -1,8 +1,6 @@
 name: Add Label to PR
 
-on:
-  pull_request:
-    types: [opened]
+on: pull_request
 
 jobs:
   add_label:
