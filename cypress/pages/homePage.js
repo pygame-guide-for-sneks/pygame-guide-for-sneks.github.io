@@ -10,7 +10,7 @@ class HomePage {
 
 function checkIfValid(page, failed_pages) {
     let url = page.prop("href");
-    if (url == "https://pygame.org/docs") {
+    if (url == "https://pyga.me/docs") {
         return;
     }
     cy.request({
