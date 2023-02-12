@@ -9,6 +9,7 @@ class HomePage {
 }
 
 function checkIfValid(page, failed_pages) {
+  console.log(page);
     let url = page.prop("href");
     if (url == "https://pygame.org/docs") {
         return;
