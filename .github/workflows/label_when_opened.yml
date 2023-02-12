@@ -2,9 +2,6 @@ name: Add Label to PR
 
 on: pull_request
 
-env:
-  GITHUB_TOKEN: {{ github.token }}
-
 jobs:
   add_label:
     runs-on: ubuntu-latest
