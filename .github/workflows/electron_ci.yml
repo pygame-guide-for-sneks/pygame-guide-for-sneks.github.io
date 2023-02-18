@@ -1,4 +1,4 @@
-name: CI
+name: Electron CI
 
 on: [push, pull_request]
 
@@ -11,8 +11,6 @@ jobs:
       - name: install dependencies
         run: | 
           sudo apt-get update
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install ./google-chrome-stable_current_amd64.deb -y
           sudo apt-get install ruby-dev build-essential zlib1g-dev -y
           sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
       - name: install ruby and node deps
@@ -30,8 +28,6 @@ jobs:
       # firefox does not currently work
       # - name: run Firefox tests
       #   run: bundle exec jekyll serve & npx cypress run --browser firefox
-      - name: run Chrome tests
-        run: bundle exec jekyll serve & npx cypress run --browser chrome
 
 # gems should not be installed with, and bundle should not be run with `sudo`.
 # We are doing it because this is only a temporary docker container for CI runs
