@@ -15,7 +15,7 @@ function toc() {
         html += '<li><a href="#' + cls + '">' + title + '</a></li>';
     }
 
-    tablOfContents.innerHTML = html;
+    tableOfContents.innerHTML = html;
 }
 
 if (tableOfContents) {
