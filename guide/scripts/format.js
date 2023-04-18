@@ -1,6 +1,6 @@
-let new_tabs = document.getElementsByClassName("new-tab");
-let linked_buttons = document.getElementsByClassName("button-link");
-let table_of_contents = document.getElementById('toc');
+let newTabs = document.getElementsByClassName("new-tab");
+let linkedButtons = document.getElementsByClassName("button-link");
+let tableOfContents = document.getElementById('toc');
 let linenos = document.getElementsByClassName('lineno');
 let headers = document.getElementsByClassName('js');
 
@@ -11,35 +11,37 @@ function toc() {
     for (let h of headers) {
         title = h.textContent;
         cls = h.getAttribute("id");
-        h.href = `#${cls}`;
+        h.href = '#' + cls;
         html += '<li><a href="#' + cls + '">' + title + '</a></li>';
     }
 
-    table_of_contents.innerHTML = html;
+    tableOfContents.innerHTML = html;
 }
 
-if (table_of_contents) {toc(); }
+if (tableOfContents) {
+    toc();
+}
 
 // Links that open new tabs
-for (let link of new_tabs) {
+for (let link of newTabs) {
     link.target = "_blank";
     link.rel = "noopener noreferrer";
 }
 
 
 // Buttons that open links
-for (let linked_button of linked_buttons) {
-    switch (linked_button.dataset.type) {
+for (let linkedButton of linkedButtons) {
+    switch (linkedButton.dataset.type) {
         case "prev":
-            linked_button.innerHTML = "Previous page:<br>" + linked_button.innerHTML;
+            linkedButton.innerHTML = "Previous page:<br>" + linkedButton.innerHTML;
             break;
         case "next":
-            linked_button.innerHTML = "Next page:<br>" + linked_button.innerHTML;
+            linkedButton.innerHTML = "Next page:<br>" + linkedButton.innerHTML;
             break;
     }
 
-    linked_button.onclick = () => {
-        location.href = linked_button.dataset.url;
+    linkedButton.onclick = () => {
+        location.href = linkedButton.dataset.url;
     }
 }
 
@@ -48,28 +50,27 @@ for (let linked_button of linked_buttons) {
 // This also messes with the final html to right-align the line numbers
 for (let elem of linenos) {
     let nums = [];
-    let new_content = "";
+    let newContent = "";
     for (n of elem.textContent.split("\n")) {
-        if (n != "") {
+        if (n !== "") {
             nums.push(n);
         }
     }
-    let longest_num = nums[nums.length-2].length;
+    let longestNum = nums[nums.length-2].length;
 
     for (n of nums) {
         let padding = "";
-        for (let i=0; i<longest_num-n.length; i++) {
+        for (let i=0; i<longestNum-n.length; i++) {
             padding += " ";
         }
-        if (n != nums[-1]) {
-            new_content += padding + n + "\n";
+        if (n !== nums[-1]) {
+            newContent += padding + n + "\n";
         } else {
-            new_content += padding + n;
+            newContent += padding + n;
         }
     }
-    elem.textContent = new_content;
+    elem.textContent = newContent;
 
-    elem.style = "width: " + longest_num * 8 + "px;";
-    let p = elem.parentElement;
-    p.style = "width: " + longest_num * 8 + "px;";
+    elem.style = `width: ${longestNum * 8}px;`;
+    elem.parentElement.style = `width: ${longestNum * 8}px;`;
 }
