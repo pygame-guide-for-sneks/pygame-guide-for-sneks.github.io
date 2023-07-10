@@ -1,7 +1,7 @@
 <hr>
 <b>Logo Image</b>
 
-Creator: @Sjmarf#1894 on Discord
+Creator: @sjmarf on Discord
 
 <hr>
 <b>404 Page Attribution</b>
