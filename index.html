@@ -1,44 +1,144 @@
 ---
 layout: default
-next_page: [/guide/intro/setup, Base Setup]
+next_page: [/guide/intro/chapter-1, What Is Pygame]
 ---
 
 <body>
-    <h1>Introduction</h1>
-    <p>
-        "Where can I learn how to use pygame?" - one of the 
-        most commonly asked questions that I get. But we always struggle to 
-        answer. We sometimes point them to the docs and examples, but that 
-        isn't a comprehensive guide on building good pygame-based applications.
-        There are many other tutorials and guides we have found, but we always 
-        find something lacking.  There are many comments we give and many nitpicks we have 
-        - so much so that some of us gathered and decided to put all of them into a book.
-        This book.
-    </p>
+  <h1>Preface</h1>
+  <p>
+    "Where can I learn how to use pygame?" - one of the most commonly asked
+    questions that we get. But we always struggle to answer. We sometimes point
+    them to the docs and examples, but that isn't a comprehensive guide on
+    building good pygame-based applications. There are many other tutorials and
+    guides we have found, but we always find something lacking. There are many
+    comments we give and many nitpicks we have - so much so that some of us
+    gathered and decided to put all of them into a book. This book.
+  </p>
 
-    <h1>Table of contents</h1>
-    <h2>Working towards a simple platformer</h2>
-    <ol>
-        <li><a href="/guide/intro/setup">Base setup and opening a window</a></li>
-        <li><a href="/guide/intro/shapes">Drawing shapes</a></li>
-        <li><a href="/guide/intro/moving-things">Moving things</a></li>
-        <li><a href="/guide/intro/images">Loading images and drawing them</a></li>
-        <li><a href="/guide/intro/classes">Using classes to better contain our code</a></li>
-        <li><a href="/guide/intro/audio">Loading and playing audio files</a></li>
-        <li><a href="/guide/intro/platformer">Making a small game to demonstrate how these go together</a></li>
-    </ol>
+  <h1>Prerequisites</h1>
+  <p>
+    This book is meant for people who already know a bit of Python. Here's
+    what you need to know:
+  </p>
+  <ul>
+    <ul>
+      <li>
+        Basic control flow keywords such as - for, while, break, if, elif, else
+      </li>
+      <li>Functions</li>
+      <li>Understanding how types and instances work</li>
+      <li>Knowing how to access and modify attributes of objects</li>
+      <li>Familiarity with basic OOP(Object Oriented Programming)</li>
+      <li>
+        Knowing how to manage your packages (using pip, knowing whether you're
+        in a venv or not)
+      </li>
+    </ul>
+  </ul>
 
-    <h2>Important topics</h2>
-    <ol>
-        <li><a href="/guide/intro/fonts">Fonts in pygame</a></li>
-        <li><a href="/guide/intro/colors">Colors in pygame</a></li>
-    </ol>
+  <p>
+    If you aren't familiar with the above, there are already some excellent
+    pre-existing Python resources out there that we suggest depending on your
+    situation
+  </p>
+  <h2>New to programming</h2>
+  <p>
+    If you're new to programming, here are some resources that are meant to
+    teach you from the ground up
+  </p>
+  <h3>Text resources:</h3>
+  <ul>
+    <li><a href="https://automatetheboringstuff.com/">Automate The Boring Stuff</a></li>
+    <li><a href="https://python.swaroopch.com/">A Byte of Python</a></li>
+  </ul>
+  <h3>Video resources:</h3>
+  <ul>
+    <li><a href="https://youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&si=YMxJnLnpgRPVd6A-">Corey Schafer's Python basics series</a></li>
+    <li><a href="https://youtu.be/rfscVS0vtbw">Introduction to Python by Mike Dane</a></li>
+  </ul>
 
-    <h2>Obscure but useful things</h2>
-    <ol>
-        <li><a href="/guide/obscure/pixelarray">PixelArray</a></li>
-        <li><a href="/guide/obscure/blend-modes">Blend modes</a></li>
-        <li><a href="/guide/obscure/set-mode-flags">pygame.display.set_mode flags</a></li>
-    </ol>
+  <h2>Familiar with programming</h2>
+  <p>
+    If you're already familiar with programming, you probably don't want
+    variables, loops, conditions and the like explained to you again, the
+    <a href="">Official Python Tutorial</a> acts as a schema to the language
+    while still being more expressive than documentation and covers the features
+    of the language nicely
+  </p>
+
+  <h1>Table of contents</h1>
+  <h2>Learning Pygame</h2>
+  <ol>
+    <li>
+      <a href="/guide/intro/chapter-1/">Chapter 01: What Is Pygame</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-2/">Chapter 02: Opening A Window</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-3/">Chapter 03: Surfaces And Positional Datatypes</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-4/">Chapter 04: Implementing An Entity</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-5/">Chapter 05: Implementing A Collection For Entities</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-6/">Chapter 06: Loading Assets</a>
+    </li>
+
+    <li>
+      <a href="/guide/intro/chapter-7/">Chapter 07: Animation</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-8/">Chapter 08: The <code>pygame.draw</code> API</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-9/">Chapter 09: Rects And Collisions</a>
+    </li>
+
+    <li>
+      <a href="/guide/intro/chapter-10/">Chapter 10: The Pygame Input API</a>
+    </li>
+
+    <li>
+      <a href="/guide/intro/chapter-11/">Chapter 11: Game States</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-12/">Chapter 12: Basic UI</a>
+    </li>
+    <li>
+      <a href="/guide/intro/chapter-13/">Chapter 13: Basic File Structure</a>
+    </li>
+  </ol>
+
+  <h2>Technical Concepts</h2>
+  <ul>
+    <li>Blend Modes</li>
+    <li>Colors</li>
+    <li>Fonts</li>
+    <li><code>display.set_mode</code> Flags</li>
+    <li><code>sprite</code> API</li>
+    <li>Audio API</li>
+    <li>Framerate Management</li>
+  </ul>
+
+  <h2>Useful Game Mechanics</h2>
+  <ul>
+    <li>Dash</li>
+    <li>Health Bar</li>
+  </ul>
+
+  <h2>Higher Theory</h2>
+  <ul>
+    <li>Tilemaps: Using Tiled/pytmx vs Making your own level editor</li>
+    <li>File structure for larger games</li>
+    <li>Code structure for larger games: Paradigms and Techniques</li>
+    <li>Utilizing OpenGL with Pygame</li>
+    <li>The Text Editor To Choose</li>
+    <li>Profiling</li>
+    <li>Debugging</li>
+    <li>Transferring code across projects</li>
+  </ul>
 </body>
-
